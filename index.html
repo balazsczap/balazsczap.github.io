@@ -3,8 +3,27 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script type="text/javascript" src="dist/vis.js"/>
+		<link rel="stylesheet" type="text/css" href="dist/vis.css">
 	</head>
 	<body>
-		<center><h1>Hello World!</h1></center>
+		<center>
+			<canvas id = "ayy">
+				
+			</canvas>
+		</center>
+	<script type="text/javascript">
+		var nodes = new vis.DataSet([{id:1, label:'Node 1'},{id:2, label: 'Node 2'}]);
+		var edges = new vis.DataSet([{from: 1, to: 3}]);
+
+		var container = document.getElementById('ayy');
+		var data = {
+			nodes: nodes,
+			edges: edges
+		};
+		var options = {};
+		var network = new vis.Network(container,data,options);
+	</script>
 	</body>
+
 </html>
