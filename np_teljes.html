@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello!</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="np-teljes-problémák">NP-teljes problémák</h1>
+
+<p>A felsorolt problémák mind <script type="math/tex" id="MathJax-Element-178">NP-teljes</script>ek</p>
+
+<h3 id="sat"><strong>SAT</strong></h3>
+
+<p>Boole formula: <script type="math/tex" id="MathJax-Element-130">(x_1 \vee x_2) \wedge \overline{x_3} \dots </script> alakú formulák.</p>
+
+<p><script type="math/tex" id="MathJax-Element-131">SAT</script>: kielégíthető (igazzá tehető) Boole formulák nyelve.</p>
+
+<p>Példa: <script type="math/tex" id="MathJax-Element-132">(x_1 \wedge \overline{x_1}) \notin SAT</script>.  </p>
+
+
+
+<h3 id="3sat"><strong>3SAT</strong></h3>
+
+<p>Konjunktív normálformálú Boole-formula: <script type="math/tex" id="MathJax-Element-133">\phi = \phi_1 \wedge \dots \wedge \phi_k</script>, és a <script type="math/tex" id="MathJax-Element-134">\phi_i</script> formulákban kizárólag <script type="math/tex" id="MathJax-Element-135">\vee</script> jelek vannak a literálokon kívül.</p>
+
+<p><script type="math/tex" id="MathJax-Element-136">3SAT</script>: a fenti szabályok szerinti, <script type="math/tex" id="MathJax-Element-137">\phi = \phi_1 \wedge \phi_2 \wedge \phi_k</script> alakú, kielégíthető Boole-formulák nyelve.</p>
+
+
+
+<h3 id="3szín"><strong>3SZÍN</strong></h3>
+
+<p>Gráf <script type="math/tex" id="MathJax-Element-138">\rightarrow</script> szomszédsági-mátrix <script type="math/tex" id="MathJax-Element-139">\rightarrow n^2</script> hosszú bitsorozat.</p>
+
+<p><script type="math/tex" id="MathJax-Element-140">3SZIN</script> a 3 színnel színezhető gráfok kódjaiból álló nyelv.</p>
+
+
+
+<h3 id="maxftl"><strong>MAXFTL</strong></h3>
+
+<p>Olyan <script type="math/tex" id="MathJax-Element-141">(G,k)</script> párokból álló nyelv, ahol <script type="math/tex" id="MathJax-Element-142">G</script> egy gráf, <script type="math/tex" id="MathJax-Element-143">k \in \mathbb{Z}^+</script>, és <script type="math/tex" id="MathJax-Element-144">G</script>-nek van <script type="math/tex" id="MathJax-Element-145">k</script> elemű független csúcshalmaza.</p>
+
+
+
+<h3 id="maxklikk"><strong>MAXKLIKK</strong></h3>
+
+<p>Olyan <script type="math/tex" id="MathJax-Element-146">(G,k)</script> párokból álló nyelv, ahol <script type="math/tex" id="MathJax-Element-147">G</script> egy gráf, <script type="math/tex" id="MathJax-Element-148">k \in \mathbb{Z}^+</script>, és <script type="math/tex" id="MathJax-Element-149">G</script>-ben van <script type="math/tex" id="MathJax-Element-150">k</script> pontú teljes részgráf (lehet hogy van <script type="math/tex" id="MathJax-Element-151">k</script>-nál nagyobb méretű is)</p>
+
+
+
+<h3 id="ham"><strong>HAM</strong></h3>
+
+<p>Olyan irányítatlan <script type="math/tex" id="MathJax-Element-152">G</script> gráfokból áll, amelyek tartalmaznak <script type="math/tex" id="MathJax-Element-153">H</script> Hamilton-kört</p>
+
+
+
+<h3 id="hamút"><strong>HAMÚT</strong></h3>
+
+<p>Olyan irányítatlan <script type="math/tex" id="MathJax-Element-179">G</script> gráfokból áll, amelyek tartalmaznak <script type="math/tex" id="MathJax-Element-180">H</script> Hamilton-utat</p>
+
+
+
+<h3 id="rh"><strong>RH</strong></h3>
+
+<p><strong>RH: részhalmazösszeg</strong><script type="math/tex" id="MathJax-Element-181">\approx</script> pontosan tele lehet-e pakolni a hátizsákot az adott tárgyakból válogatva.</p>
+
+<p>Adott: <script type="math/tex" id="MathJax-Element-182">(s_1...s_m;b)</script> egészek, és akkor a <script type="math/tex" id="MathJax-Element-183">RH</script> nyelv része, ha van olyan <script type="math/tex" id="MathJax-Element-184">I</script> indexhalmaz, hogy <script type="math/tex" id="MathJax-Element-185">b = \sum_{i \in I}s_i</script>  </p>
+
+
+
+<h3 id="partíció"><strong>PARTÍCIÓ</strong></h3>
+
+<p>Egyrészről: a <script type="math/tex" id="MathJax-Element-195">RH</script> nyelv speciális esete, ahol <script type="math/tex" id="MathJax-Element-196">b = \frac{1}{2}\sum s_i</script> , azaz a táska mérete az <script type="math/tex" id="MathJax-Element-197">s_i</script> számok összegének a fele.</p>
+
+<p>Másrészről: Létezik-e olyan <script type="math/tex" id="MathJax-Element-198">I</script> indexhalmaz, amire <script type="math/tex" id="MathJax-Element-199">\sum_{i \in I} s_i =  \frac{1}{2}\sum s_i</script></p>
+
+<h3 id="3dh"><strong>3DH</strong></h3>
+
+<p><strong>3 dimenziós házasítás</strong>: <script type="math/tex" id="MathJax-Element-159">U_1, U_2, U_3</script> azonos méretű halmazok, <script type="math/tex" id="MathJax-Element-160">S</script> egy felsorolás, <script type="math/tex" id="MathJax-Element-161">(u_1,u_2,u_3)</script> hármasokból (<script type="math/tex" id="MathJax-Element-162">u_i \in U_i</script>). 3 dimenziós házasításon azt értjük, hogy kiválasztható egy <script type="math/tex" id="MathJax-Element-163">S' \subseteq S</script> részhalmaz úgy, hogy <script type="math/tex" id="MathJax-Element-164">S'</script> elemei az <script type="math/tex" id="MathJax-Element-165">U</script> halmazok elemeit pontosan egyszer fedik le.</p>
+
+<p>3DH: az olyan <script type="math/tex" id="MathJax-Element-166">U_1, U_2, U_3; S\subseteq U_1\times U_2\times U_3</script> rendszerek, ahol S-ből kiválaszthatő egy 3 dimenziós házasítás</p>
+
+
+
+<h3 id="x3c"><strong>X3C</strong></h3>
+
+<p>Olyan <script type="math/tex" id="MathJax-Element-167">(U,\mathcal{F})</script> párok, ahol <script type="math/tex" id="MathJax-Element-168">U</script> egy véges halmaz, <script type="math/tex" id="MathJax-Element-169">\mathcal{F}</script> pedig <script type="math/tex" id="MathJax-Element-170">{x_1,x_2,x_3}</script>-k halmaza, ahol <script type="math/tex" id="MathJax-Element-171">(x_i) \in U</script>, és <script type="math/tex" id="MathJax-Element-172">\mathcal{F}</script>-ből kiválaszthatóak olyan páronként diszjunkt halmazok, amelyek együttesen lefedik <script type="math/tex" id="MathJax-Element-173">U</script>-t.</p>
+
+<p>Például: <script type="math/tex" id="MathJax-Element-174"> U = \{1,2,3,4,5,6\}</script> és <script type="math/tex" id="MathJax-Element-175">\mathcal\{F\} = \{\{1,2,3\}, \{4,5,6\}\}</script> <br>
+Ellenpélda: <script type="math/tex" id="MathJax-Element-176">U = \{1,2,3,4,5,6\}</script> és <script type="math/tex" id="MathJax-Element-177">\mathcal\{F\} = \{\{1,2,3\}, \{1,5,6\}\}</script>,  mert a 4-est nem lehet lefedni.</p>
+
+<h3 id="részgráfizo"><strong>RÉSZGRÁFIZO</strong></h3>
+
+<p>Olyan <script type="math/tex" id="MathJax-Element-247">(G_1, G_2)</script> irányítatlan gráfok, amiknél <script type="math/tex" id="MathJax-Element-248">G_1</script>-nek van <script type="math/tex" id="MathJax-Element-249">G_2</script>-vel izomorf részgráfja.</p>
+
+<p><script type="math/tex" id="MathJax-Element-250">\scriptsize{\text{Megjegyzés: A $GRAFIZO$ problémáról ($G_1$ izomorf-e $G_2$-vel) nem ismert hogy NP-teljes-e.}}</script></p></div></body>
+</html>
