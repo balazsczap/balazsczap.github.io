@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost/volume -->
+<html data-livestyle-extension="available">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Volume changer</title>
+    <style>
+      /* MOBILE */ 
+@media only screen and (max-width: 1000px) {
+    p {
+        font: 32px "Lucida Grande", Helvetica, Arial, sans-serif;
+    }
+
+    button{
+    	margin:50px auto;
+    }
+
+}
+
+
+/* PC */
+@media only screen and (min-width: 1000px) {
+    body {
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    }
+    button{
+    	margin:100px auto;
+    }
+
+}
+
+.container{
+width:50%;
+margin:auto;
+}
+#btnup{
+	margin-bottom: 50px
+}
+#btndown{
+
+}
+button{
+	width:60%;
+	float: none;
+	display:block;
+	cursor:pointer;
+
+}
+
+a {
+  color: #00B7FF;
+}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+	$("#btnup").on("touchend click", function(e){
+		$.get({
+			url: "87.97.63.80:8080/volume/up"
+		});
+	});
+
+	$('#btndown').on("touchend click ", function(e){
+		$.get({
+			url: "87.97.63.80:8080/volume/down"
+		});
+	});
+});
+
+
+
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+</head>
+
+<body>
+    <div class="container">
+        <button id="btnup">
+            <p>Up</p>
+        </button>
+        <button id="btndown">
+            <p>Down</p>
+        </button>
+    </div>
+</body>
+
+</html>
