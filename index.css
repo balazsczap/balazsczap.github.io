@@ -1,13 +1,14 @@
 body{
-	background-image: url("resources/bg.png");
+	background: linear-gradient(30deg, #862c31 0%,#473e3a 100%);
+	background-image: url("resources/bg.jpg");
 	height:100%;
 
 }
 #main_container{
 	width:50%;
 	margin:auto;
-	/*font-family: 'Lato', sans-serif;*/
-	font-family: 'Inconsolata', monospace;
+	font-family: 'Lato', sans-serif;
+	/*font-family: 'Inconsolata', monospace;*/
 	padding-top: 20%;
 }
 .bg_frosted{
@@ -19,7 +20,7 @@ body{
 	margin:3%;
 	padding:0;
 	overflow: hidden;
-	background: url("resources/bg.png") no-repeat fixed;
+	background: url("resources/bg.jpg") no-repeat fixed;
 	-webkit-filter: blur(30px);
 	z-index: -1;
 }
