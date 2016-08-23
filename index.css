@@ -6,8 +6,8 @@ body{
 #main_container{
 	width:50%;
 	margin:auto;
-	/*font-family: 'Lato', sans-serif;*/
-	font-family: 'Inconsolata', monospace;
+	font-family: 'Lato', sans-serif;
+	/* font-family: 'Inconsolata', monospace; */
 	padding-top: 20%;
 }
 .bg_frosted{
