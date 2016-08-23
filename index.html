@@ -7,12 +7,17 @@
 		<script>
 			$(document).ready(function(){
 				
-				$.get('http://87.97.63.80/products/api', function(data) {
-				   $("#ip").text(data[0]);
-				}, 'text');
+				$.ajax({
+					type: "GET",
+					dataType : "json",
+					url: 'http://87.97.63.80/products/api',
+					success: function(data) {
+						$("#ip").text(data[0]);
+					}
+				});
 				
 				
-			})
+			});
 		</script>
 	</head>
 	<body>
