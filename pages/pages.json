@@ -1,0 +1,14 @@
+[
+	{
+		"name" : "Home",
+		"url": "index.html"
+	},
+	{
+		"name" : "REST",
+		"url": "pages/rest_test/index.html"
+	},
+	{
+		"name" : "NP-teljes problémák",
+		"url": "np_teljes.html"
+	}
+]
