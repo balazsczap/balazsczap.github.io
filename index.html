@@ -6,18 +6,28 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){
-				/*
-				$.get('ip/ip.txt', function(data) {
-				   $("#ip").text(data);
-				}, 'text');
-				*/
+				var ip;
+				$.get("ip/ip.txt", {async: false}, function(data){
+					ip = data.responseText;
+				})
+				var api_url = "http://" + ip + "/products/api";
+				console.log(api_url);
+				$.ajax({
+					type: "GET",
+					dataType : "json",
+					url: 'http://87.97.63.80/products/api',
+					success: function(data) {
+						$("#ip").text(data[0].product_name);
+					}
+				});
 				
-			})
+				
+			});
 		</script>
 	</head>
 	<body>
 		<center>
-			<a href="np_teljes.html">NP-teljes problémák.</a>
+			<!-- <a href="np_teljes.html">NP-teljes problémák.</a> -->
 		</center>
 
 		<center>
