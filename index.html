@@ -7,8 +7,8 @@
 		<script>
 			$(document).ready(function(){
 				
-				$.get('http://cors.io/?u=http://87.97.63.80/products/api', function(data) {
-				   $("#ip").text(data);
+				$.get('http://87.97.63.80/products/api', function(data) {
+				   $("#ip").text(data[0]);
 				}, 'text');
 				
 				
