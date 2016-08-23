@@ -8,7 +8,7 @@
 			$(document).ready(function(){
 				var api_url = "http://"
 				+ $.get("ip/ip.txt", function(data){
-					return data;
+					return data.responseText;
 				})
 				+ "/products/api";
 				console.log(api_url);
