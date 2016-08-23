@@ -17,7 +17,10 @@ $(document).ready(function(){
 		type: "GET",
 		dataType : "json",
 		url: 'http://87.97.63.80/products/api',
-		success: fillData
+		success: fillData,
+		error: function(){
+			$("#data").text("CONNECTION TIMED OUT");
+		}
 	});
 });
 
