@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	var ip;
+	loadLinks();
 	$.ajax({
 		url: "../../ip/ip.txt",
 		dataType: "text",
@@ -29,10 +30,31 @@ $(document).ready(function(){
 
 function fillData(data){
 	for(var i=0; i<30; ++i){
-		var p = $('<p>');
-		p.text(data[i].product_name);
-		p.appendTo("#data");
+		var div = document.createElement("div");
+		$(div).attr("class", "product")
+			.text(data[i].product_name)
+			.appendTo("#data");
 	}
 	/* $("#data").text(data[0].product_name);*/
 }
 
+function loadLinks(){
+	$.ajax({
+		url: "../pages.json",
+		dataType: "json",
+		success: function(data){
+			for(var i=0; i<data.length; ++i){
+				var link = document.createElement("a");
+				if(data[i].name === "REST próba"){
+					$(link).text(data[i].name).attr("href", "#");
+					$("#links").append(link);
+				}
+				else{
+					$(link).text(data[i].name).attr("href", "../../" + data[i].url);
+					$("#links").append(link);
+				}
+				
+			}
+		}
+	});
+}

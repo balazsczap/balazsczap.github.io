@@ -1,0 +1,5 @@
+body{
+	overflow:auto;
+	background: linear-gradient(30deg, #E6E2AF 0%,#EFECCA 100%);
+	background-attachment: fixed;
+}
