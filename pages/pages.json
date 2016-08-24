@@ -10,6 +10,11 @@
 		"url": "pages/rest_test/"
 	},
 	{
+		"code" : "store",
+		"name" : "Store",
+		"url" : "pages/store/"
+	},
+	{
 		"code" : "nptelj",
 		"name" : "NP-teljes problémák",
 		"url": "pages/np_teljes/"

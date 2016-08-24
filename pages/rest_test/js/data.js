@@ -29,7 +29,7 @@ function loadData(data_placement){
 				url: api_url,
 				success: function(data){product_data = data; fillData(data, data_placement); $("#id_asc").trigger("click");},
 				error: function(){
-					$("data_placement").text("DB SZERVER NEM ELÉRHETŐ").attr("style", "width:100%;margin:auto;text-transform: uppercase;font-size: 40px; color:#f44336");
+					$(data_placement).text("DB SZERVER NEM ELÉRHETŐ").attr("style", "width:100%;margin:auto;text-transform: uppercase;font-size: 40px; color:#f44336");
 				}
 			});
 		}
@@ -41,11 +41,16 @@ function fillData(data, data_placement){
 	$(data_placement).find(".row:not(:first)").remove()
 	for(var i=0; i<30; ++i){
 		var row = document.createElement("div");
+
 		var id = document.createElement("p");
 		$(id).text(data[i].product_id).appendTo(row);
 
 		var text = document.createElement("p");
 		$(text).text(data[i].product_name).appendTo(row);
+
+		var shelf_id = document.createElement("p");
+		$(shelf_id).text(data[i].shelf_id).appendTo(row);
+
 		$(row).attr("class", "row")
 			.appendTo(data_placement);
 	}
