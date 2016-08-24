@@ -20,7 +20,7 @@ $(document).ready(function(){
 				url: api_url,
 				success: fillData,
 				error: function(){
-					$("#data").text("DB SZERVER NEM ELÉRHETŐ");
+					$("#data").text("DB SZERVER NEM ELÉRHETŐ").style("width:50%;margin:auto;display:flex;text-transform: uppercase;font-size: 100px; color:#f44336");
 				}
 			});
 		}
