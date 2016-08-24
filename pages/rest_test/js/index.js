@@ -32,10 +32,14 @@ $(document).ready(function(){
 });
 
 function fillData(data){
-	for(var i=0; i<30; ++i){
-		var div = document.createElement("div");
-		$(div).attr("class", "product")
-			.text(data[i].product_name)
+	for(var i=0; i<data.length; ++i){
+		var row = document.createElement("div");
+		var id = document.createElement("p");
+		$(id).text(data[i].product_id).appendTo(row);
+
+		var text = document.createElement("p");
+		$(text).text(data[i].product_name).appendTo(row);
+		$(row).attr("class", "row")
 			.appendTo("#data");
 	}
 	/* $("#data").text(data[0].product_name);*/
