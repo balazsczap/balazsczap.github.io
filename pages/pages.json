@@ -1,14 +1,17 @@
 [
 	{
+		"code" : "main",
 		"name" : "Home",
-		"url": "index.html"
+		"url": ""
 	},
 	{
+		"code" : "rest",
 		"name" : "REST próba",
-		"url": "pages/rest_test/index.html"
+		"url": "pages/rest_test/"
 	},
 	{
+		"code" : "nptelj",
 		"name" : "NP-teljes problémák",
-		"url": "np_teljes.html"
+		"url": "pages/np_teljes/"
 	}
 ]
