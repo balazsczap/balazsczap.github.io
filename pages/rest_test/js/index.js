@@ -11,6 +11,7 @@ $(document).ready(function(){
 		},
 		error: function(jqXHR, tS, error){
 			ip = "error"
+			$("#data").text("DB SZERVER NEM ELÉRHETŐ").attr("style", "width:100%;margin:auto;text-transform: uppercase;font-size: 40px; color:#f44336");
 		},
 		complete: function(){
 			var api_url = "http://" + ip + "/products/api";
@@ -21,7 +22,7 @@ $(document).ready(function(){
 				url: api_url,
 				success: fillData,
 				error: function(){
-					$("#data").text("DB SZERVER NEM ELÉRHETŐ").attr("style", "width:50%;margin:auto;display:flex;text-transform: uppercase;font-size: 100px; color:#f44336");
+					$("#data").text("DB SZERVER NEM ELÉRHETŐ").attr("style", "width:100%;margin:auto;text-transform: uppercase;font-size: 40px; color:#f44336");
 				}
 			});
 		}
