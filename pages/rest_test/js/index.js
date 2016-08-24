@@ -4,18 +4,17 @@ $(document).ready(function(){
 	$.ajax({
 		url: "../../ip/ip.txt",
 		dataType: "text",
-		timeout:1000,
 		success: function(data){
 			ip = data;
 			console.log(ip);
 		},
 		error: function(jqXHR, tS, error){
 			ip = "error"
-			$("#data").text("DB SZERVER NEM ELÉRHETŐ").attr("style", "width:100%;margin:auto;text-transform: uppercase;font-size: 40px; color:#f44336");
 		},
 		complete: function(){
 			var api_url = "http://" + ip + "/products/api";
 			console.log(api_url);
+			timeout:1000;
 			$.ajax({
 				type: "GET",
 				dataType : "json",
