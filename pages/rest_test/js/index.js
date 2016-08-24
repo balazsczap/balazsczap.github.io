@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$.ajax({
 		url: "../../ip/ip.txt",
 		dataType: "text",
+		timeout:1000,
 		success: function(data){
 			ip = data;
 			console.log(ip);
@@ -20,10 +21,11 @@ $(document).ready(function(){
 				url: api_url,
 				success: fillData,
 				error: function(){
-					$("#data").text("DB SZERVER NEM ELÉRHETŐ").style("width:50%;margin:auto;display:flex;text-transform: uppercase;font-size: 100px; color:#f44336");
+					$("#data").text("DB SZERVER NEM ELÉRHETŐ").attr("style", "width:50%;margin:auto;display:flex;text-transform: uppercase;font-size: 100px; color:#f44336");
 				}
 			});
 		}
+
 	});
 
 });
