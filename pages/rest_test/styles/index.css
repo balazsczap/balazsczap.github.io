@@ -98,11 +98,12 @@ body{
 	background-color: rgba(255,255,255,0.3);
 }
 
+
 #data .row p{
 	margin:0;
 	padding:0;
 	margin-right:30px;
 }
 #data .row p:first-child{
-	width:7%;
+	width:10%;
 }
