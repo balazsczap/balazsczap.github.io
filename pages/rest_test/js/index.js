@@ -18,7 +18,7 @@ $(document).ready(function(){
 			$.ajax({
 				type: "GET",
 				dataType : "json",
-				timeout:1000;
+				timeout:1000,
 				url: api_url,
 				success: fillData,
 				error: function(){
