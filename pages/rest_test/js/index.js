@@ -14,10 +14,11 @@ $(document).ready(function(){
 		complete: function(){
 			var api_url = "http://" + ip + "/products/api";
 			console.log(api_url);
-			timeout:1000;
+
 			$.ajax({
 				type: "GET",
 				dataType : "json",
+				timeout:1000;
 				url: api_url,
 				success: fillData,
 				error: function(){
