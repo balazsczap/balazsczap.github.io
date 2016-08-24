@@ -20,7 +20,7 @@ $(document).ready(function(){
 				url: api_url,
 				success: fillData,
 				error: function(){
-					$("#data").text("CONNECTION TIMED OUT");
+					$("#data").text("DB SZERVER NEM ELÉRHETŐ");
 				}
 			});
 		}
