@@ -49,6 +49,7 @@ function loadData(data_placement){
 	});
 }
 var selectedShelves = [];
+var selectedProducts = [];
 
 function setUpShelves(data_placement){
 	var rows = store_data.rows;
@@ -65,16 +66,34 @@ function setUpShelves(data_placement){
 							.css("width", shelf_width)
 							.css("min-height", shelf_width/2)
 							.text(i*columns + j)
-							.click(function(){
-								selectedShelves.push(this);
-							})
+							.click(selectShelf)
 							.appendTo(row);
-
-								
-
-
 		}
 	}
+}
+
+function selectShelf(){
+	selectedShelves.push($(this));
+	selectedProducts.push($(this).children().text());
+	$(this)
+		.addClass("shelf_selected")
+		.unbind("click")
+		.click(deselectShelf);
+}
+function deselectShelf(){
+	selectedShelves.splice(indexOfShelf(selectedShelves,$(this)), 1);
+	$(this)
+		.removeClass("shelf_selected")
+		.unbind("click")
+		.click(selectShelf);
+}
+
+function indexOfShelf(array, shelf){
+	for(var i=0; i<array.length;++i){
+		if(array[i].attr("shelf_id") === shelf.attr("shelf_id"))
+			return i;
+	}
+	return -1;
 }
 
 function fillShelves(data_placement){

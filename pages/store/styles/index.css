@@ -53,8 +53,12 @@ body{
 	min-height:10%;
 	background-color: rgba(230,230,210,0.1);
 }
+
+.shelf_selected{
+	background-color: rgba(230,230,210,0.5);
+}
 .shelf:hover{
-	background-color: rgba(230,230,210,0.3);
+	background-color: rgba(230,230,210,0.7);
 }
 
 .product{
@@ -63,7 +67,9 @@ body{
 	background-color: rgba(42,42,42,1);
 	padding:5px;
 	border-radius:2px;
+	pointer-events:none;
 }
-.shelf:hover .product{ 
+
+.shelf:hover > .product{ 
 	display:block;
 }
