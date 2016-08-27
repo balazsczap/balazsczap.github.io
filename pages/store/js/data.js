@@ -1,7 +1,8 @@
 var product_data;
 var store_data;
+var ip;
 $(document).ready(function(){
-	var ip;
+	sendIP();
 	loadLinks();
 	loadData("#shelves");
 });

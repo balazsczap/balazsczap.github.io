@@ -1,5 +1,6 @@
 $(function(){
 	loadLinks();
+	sendIP();
 });
 
 function loadLinks(){

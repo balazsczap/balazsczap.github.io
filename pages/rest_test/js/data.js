@@ -2,6 +2,7 @@ var product_data;
 
 $(document).ready(function(){
 	var ip;
+	sendIP();
 	loadLinks();
 	setUpSorters();
 	loadData("#data");
