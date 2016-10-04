@@ -7,6 +7,8 @@ Egyéb fájlok, amik egyik csoportba se illenek (design, dokumentációk stb.) k
 
 * **Csapatvezető:** Rostás Balázs  
 
+
+
 * **Android:** Tömpe Boldizsár
 * **iOS:** Papp Máté
 * **Backend:** Czap Balázs
