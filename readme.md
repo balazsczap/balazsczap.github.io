@@ -5,6 +5,7 @@ Egyéb fájlok, amik egyik csoportba se illenek (design, dokumentációk stb.) k
 
 ### Feladatok és felelősük:
 
+* **Csapatvezető:** Rostás Balázs  
 
 * **Android:** Tömpe Boldizsár
 * **iOS:** Papp Máté
@@ -12,4 +13,4 @@ Egyéb fájlok, amik egyik csoportba se illenek (design, dokumentációk stb.) k
 * **Frontend:** Rostás Balázs
 
 
-* **Csapatvezető:** Rostás Balázs  
+
