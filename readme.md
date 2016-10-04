@@ -10,4 +10,6 @@ Egyéb fájlok, amik egyik csoportba se illenek (design, dokumentációk stb.) k
 * **iOS:** Papp Máté
 * **Backend:** Czap Balázs
 * **Frontend:** Rostás Balázs
+
+
 * **Csapatvezető:** Rostás Balázs  
