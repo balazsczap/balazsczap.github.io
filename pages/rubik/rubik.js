@@ -6,7 +6,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 
-
+scene.background = new THREE.Color( 0x0c0c0c );
 
 
 var dirLight = new THREE.PointLight(0xffffff, 0.5);
@@ -44,7 +44,7 @@ camera.position.applyAxisAngle(new THREE.Vector3(1,0,0), -0.7853);
 function render(){
 	requestAnimationFrame(render);
 	renderer.render(scene, camera);
-	camera.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.01);
+	camera.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.014);
 	camera.lookAt(new THREE.Vector3(0,0,0));
 }
 
