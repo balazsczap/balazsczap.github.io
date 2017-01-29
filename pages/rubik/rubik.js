@@ -19,9 +19,19 @@ var ambient = new THREE.AmbientLight( 0x101010 );
 				scene.add( ambient );
 
 
-camera.position.z=5;
+var colors = {
+	red: 0xff0000,
+	green: 0x00ff00,
+	blue: 0x0000ff,
+	yellow: 0xffff00,
+	orange: 0xff9933,
+	white: 0xffffff
+}
 
-class Cube{
+camera.position.z=5;
+camera.position.x=-1;
+
+class Cuboid{
 	constructor(front,top, right){
 		this.elements = new THREE.Group();
 
@@ -53,11 +63,15 @@ class Cube{
 
 			this.elements.add(right_face);
 		}
-		
-
 		scene.add(this.elements);
-
 	}
+
+	rotateOnAxis(axis, angle){this.elements.rotateOnAxis(axis,angle);}
+	translateOnAxis(axis, dist){this.elements.translateOnAxis(axis,dist);}
+	translateX(dist){this.elements.translateX(dist);}
+	translateY(dist){this.elements.translateY(dist);}
+	translateZ(dist){this.elements.translateZ(dist);}
+	get position(){return this.elements.position;}
 }
 
 class Face{
@@ -83,15 +97,22 @@ class Face{
 	}
 }
 
-var c1 = new Cube(0xff0000,0x00ff00,0x0000ff);
 
+
+var c1 = new Cuboid(colors.red,colors.white,colors.blue);
+var c2 = new Cuboid(colors.red, colors.white);
+var c3 = new Cuboid(colors.red, colors.green, colors.white);
+c2.translateX(-1);
+c3.translateX(-2);
+c3.rotateOnAxis(new THREE.Vector3(0,0,1), Math.PI/2);
 //var f1 = new Face([0,0,0], 1, 0xff0000); 
 camera.position.applyAxisAngle(new THREE.Vector3(1,0,0), -Math.PI/4);
 function render(){
 	requestAnimationFrame(render);
 	renderer.render(scene, camera);
 	camera.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.014);
-	camera.lookAt(new THREE.Vector3(0,0,0));
+	camera.lookAt(c2.position);
+	dirLight.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.014);
 }
 
 render();
