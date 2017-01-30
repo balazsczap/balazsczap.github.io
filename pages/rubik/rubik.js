@@ -31,12 +31,24 @@ var colors = {
 camera.position.z=5;
 camera.position.x=-1;
 
-class Cuboid{
-	constructor(front,top, right){
-		this.elements = new THREE.Group();
+function decorate(owner, object){
+	console.log(Object.getOwnPropertyNames(owner));
+
+	Object.getOwnPropertyNames(owner).forEach(function(property) {
+	  console.log(property);
+	  if(typeof obj[property] === 'function') {
+
+	    object[property] = owener[property];
+	  }
+	});
+}
+
+function Cuboid(front, top, right){
+	THREE.Group.call(this);
+	this.type = 'Cuboid';
 
 		var underlay_cube = new THREE.Mesh(new THREE.BoxGeometry(0.999, 0.999, 0.999), new THREE.MeshPhongMaterial({color:0x333333, side:THREE.DoubleSide}));
-		this.elements.add(underlay_cube);
+		this.add(underlay_cube);
 
 		var face_geom = new THREE.PlaneGeometry(0.95,0.95);
 
@@ -44,7 +56,7 @@ class Cuboid{
 		var front_face=new THREE.Mesh(face_geom, front_mat);
 		front_face.translateZ(0.5);
 
-		this.elements.add(front_face);
+		this.add(front_face);
 		if(top!==undefined){
 			var top_mat=new THREE.MeshPhongMaterial({color:top, side: THREE.DoubleSide});
 			var top_face=new THREE.Mesh(face_geom, top_mat);
@@ -52,7 +64,7 @@ class Cuboid{
 			top_face.translateY(0.5);
 			top_face.rotateOnAxis(new THREE.Vector3(1,0,0),Math.PI/2);
 
-			this.elements.add(top_face);
+			this.add(top_face);
 		}
 		if(right!==undefined){
 			var right_mat=new THREE.MeshPhongMaterial({color:right, side: THREE.DoubleSide});
@@ -61,18 +73,27 @@ class Cuboid{
 			right_face.translateX(0.5);
 			right_face.rotateOnAxis(new THREE.Vector3(0,1,0),-Math.PI/2);
 
-			this.elements.add(right_face);
+			this.add(right_face);
 		}
-		scene.add(this.elements);
-	}
+		scene.add(this);
 
-	rotateOnAxis(axis, angle){this.elements.rotateOnAxis(axis,angle);}
-	translateOnAxis(axis, dist){this.elements.translateOnAxis(axis,dist);}
-	translateX(dist){this.elements.translateX(dist);}
-	translateY(dist){this.elements.translateY(dist);}
-	translateZ(dist){this.elements.translateZ(dist);}
-	get position(){return this.elements.position;}
+		// decorate(elements, this);
+
+		// return elements;
 }
+
+Cuboid.prototype = Object.assign(Object.create(THREE.Group.prototype),{constructor: Cuboid});
+
+// class Cuboid{
+// 	constructor(front,top, right){
+
+// 	}
+
+// 	ayy(){console.log("lmao");}
+
+
+
+// }
 
 class Face{
 	constructor(center, size, center_color, other_color_list){
@@ -99,7 +120,7 @@ class Face{
 
 
 
-var c1 = new Cuboid(colors.red,colors.white,colors.blue);
+var c1 = new Cuboid(colors.red, colors.white, colors.blue);
 var c2 = new Cuboid(colors.red, colors.white);
 var c3 = new Cuboid(colors.red, colors.green, colors.white);
 c2.translateX(-1);
