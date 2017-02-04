@@ -5,9 +5,9 @@ define(['three'], function(THREE){
 		THREE.Group.call(this);
 		this.type = 'Cubelet';
 		
-		this.front_sticker=front;
-		this.top_sticker=top;
-		this.right_sticker=right;
+		this.top_color = top;
+		this.front_color = front;
+		this.right_color = right;
 
 		var underlay_cube = new THREE.Mesh(new THREE.BoxGeometry(0.999, 0.999, 0.999), new THREE.MeshPhongMaterial({color:underlay_color, side:THREE.DoubleSide}));
 		this.add(underlay_cube);
@@ -48,14 +48,32 @@ define(['three'], function(THREE){
 
 	Cubelet.prototype = Object.assign(Object.create(THREE.Group.prototype),{constructor: Cubelet});
 
-	Cubelet.prototype.changeTopColor = function(color){
+	Cubelet.prototype.setTopColor = function(color){
+		if(this.top_face==undefined){console.warn("This Cubelet has no top face."); return;}
+		this.top_face.material.color.setHex(color);
+	}
+
+	Cubelet.prototype.setFrontColor = function(color){
+		console.log(this);
+		if(this.front_face==undefined){console.warn("This Cubelet has no front face."); return;}
+		this.front_face.material.color.setHex(color);
+	}
+
+	Cubelet.prototype.setRightColor = function(color){
+		console.log(this);
+		if(this.right_face==undefined){console.warn("This Cubelet has no right face."); return;}
 		this.right_face.material.color.setHex(color);
 	}
 
 	Cubelet.prototype.clone = function(){
-		var g = THREE.Group.prototype.clone.call(this,false);
-		this.children.forEach(function(e){g.add(e.clone(false));});
-		return g;
+		console.log(this);
+		var c = new Cubelet(this.front_color, this.top_color, this.right_color);
+		
+		c.matrix = this.matrix;
+		c.position.copy(this.position);
+		c.rotation.copy(this.rotation);
+		console.log(c);
+		return c;
 	}
 
 	return Cubelet;

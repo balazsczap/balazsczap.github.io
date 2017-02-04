@@ -66,9 +66,18 @@ define(['three', 'app/Cubelet', 'app/Face'], function(THREE, Cubelet, Face){
 
 		var [b7,b8,b9,b4,b5,b6,b1,b2,b3] = [f7,f8,f9,f4,f5,f6,f1,f2,f3].map(function(f){
 			var b = f.clone();
-			b.translateZ(-2);
+
 			return b;
 		});
+		
+		b9.setRightColor(colors.green);
+		b6.setTopColor(colors.green);
+		b3.setTopColor(colors.green);
+		b7.setTopColor(colors.blue);
+		b4.setTopColor(colors.blue);
+		b1.setRightColor(colors.blue);
+
+
 
 		var [c7,c8,c9,c4,c5,c6,c1,c2,c3] = [f7,f8,f9,f4,f5,f6,f1,f2,f3].map(function(f){
 			var c = f.clone();
@@ -76,10 +85,18 @@ define(['three', 'app/Cubelet', 'app/Face'], function(THREE, Cubelet, Face){
 			return c;
 		});
 
+
 		this.back = new Face(b5, [b7,b8,b9], [b9,b6,b3], [b1,b2,b3], [b1,b4,b7]);
+		this.back.translateZ(-2);
 		this.add(this.back);
 
-		console.log(b5)
+		var i=0;
+		this.back.children.forEach(function(f){
+			f.translateZ(i++/2);
+		})
+
+		this.back.rotateOnAxis(new THREE.Vector3(0,1,0), Math.PI);
+		// console.log(b5)
 
 
 		// console.log(b5);
