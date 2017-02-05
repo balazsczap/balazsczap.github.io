@@ -86,7 +86,7 @@ define(['three', 'app/Cubelet', 'app/Face'], function(THREE, Cubelet, Face){
 	Cube.prototype.rotateFront = function(){
 		for (var i = 0; i < this.front.length; i++) {
 			for (var j = 0; j < this.front[i].length; j++) {
-				this.front[i][j].rotateAroundWorldAxis(new THREE.Vector3(0,0,1), -Math.PI/2);
+				this.front[i][j].rotateAroundWorldAxis(new THREE.Vector3(0,0,1), -Math.PI/4);
 			};
 		};
 	}

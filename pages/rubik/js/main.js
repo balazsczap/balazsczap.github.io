@@ -37,8 +37,8 @@ requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'a
 	var renderer = scene.renderer;
 	
 	camera.position.z=8;
-	camera.position.x=-1;
-	camera.position.applyAxisAngle(new THREE.Vector3(1,0,0), -Math.PI/4);
+	camera.position.x=4;
+	camera.position.y=6;
 
 
 
