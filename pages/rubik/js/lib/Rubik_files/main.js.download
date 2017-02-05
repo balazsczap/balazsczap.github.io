@@ -5,12 +5,12 @@ requirejs.config({
 	}
 });
 
-requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'app/Cube'], function(JQ, THREE, scene, Cubelet, Face, Cube){
+requirejs(['three', 'app/Scene', 'app/Cubelet', 'app/Face', 'app/Cube'], function(THREE, scene, Cubelet, Face, Cube){
 
 
 	
 
-
+	
 	
 
 
@@ -75,9 +75,4 @@ requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'a
 	}
 	render();
 
-	JQ(document).keypress(function(e){
-		if(e.charCode==97){
-			cube.rotateFront();
-		}
-	});
 });
