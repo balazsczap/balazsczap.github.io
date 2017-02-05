@@ -82,7 +82,6 @@ define(['three', 'app/Cubelet', 'app/Face'], function(THREE, Cubelet, Face){
 
 	Cube.prototype = Object.assign(Object.create(THREE.Group.prototype),{constructor: Cube});
 
-
 	Cube.prototype.rotateFront = function(){
 		for (var i = 0; i < this.front.length; i++) {
 			for (var j = 0; j < this.front[i].length; j++) {
