@@ -1,8 +1,8 @@
-define(['three', 'app/Cubelet', 'app/Face'], function(THREE, Cubelet, Face){
+define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet, Face, Edge){
 	const colors = {
 		red: 0xbb0000,
-		green: 0x00bb44,
-		blue: 0x0000aa,
+		green: 0x00551c,
+		blue: 0x000055,
 		yellow: 0xccaa00,
 		orange: 0xff5400,
 		white: 0xffffff,
@@ -18,15 +18,15 @@ define(['three', 'app/Cubelet', 'app/Face'], function(THREE, Cubelet, Face){
 		
 
 
-		var f5 = new Cubelet().front(colors.red);
-		var f8 = new Cubelet().front(colors.red).top(colors.white);
-		var f6 = new Cubelet().front(colors.red).right(colors.blue);
-		var f4 = new Cubelet().front(colors.red).left(colors.green);
-		var f2 = new Cubelet().front(colors.red).bottom(colors.yellow);
-		var f7 = new Cubelet().front(colors.red).left(colors.green).top(colors.white);
-		var f9 = new Cubelet().front(colors.red).top(colors.white).right(colors.blue);
 		var f1 = new Cubelet().front(colors.red).bottom(colors.yellow).left(colors.green);
+		var f2 = new Cubelet().front(colors.red).bottom(colors.yellow);
 		var f3 = new Cubelet().front(colors.red).right(colors.blue).bottom(colors.yellow);
+		var f4 = new Cubelet().front(colors.red).left(colors.green);
+		var f5 = new Cubelet().front(colors.red);
+		var f6 = new Cubelet().front(colors.red).right(colors.blue);
+		var f7 = new Cubelet().front(colors.red).left(colors.green).top(colors.white);
+		var f8 = new Cubelet().front(colors.red).top(colors.white);
+		var f9 = new Cubelet().front(colors.red).top(colors.white).right(colors.blue);
 
 		var c5 = new Cubelet();
 		var c8 = new Cubelet().top(colors.white);
@@ -73,23 +73,77 @@ define(['three', 'app/Cubelet', 'app/Face'], function(THREE, Cubelet, Face){
 			}
 		}
 
-		this.front = [[f7,f8,f9],
-					  [f4,f5,f6],
-					  [f1,f2,f3]];
+		this.front = new Face(cubelets[0], new THREE.Vector3(0,0,-1));
+		this.top = new Face([[b7, b8, b9],
+							[c7, c8, c9],
+							[f7, f8, f9]], 
+							new THREE.Vector3(0,-1,0));
+		this.right = new Face([[f9, c9, b9],
+								[f6, c6, b6],
+								[f3, c3, b3]], 
+								new THREE.Vector3(-1,0,0));
+		this.left = new Face([[f7, c7, b7],
+								[f4, c4, b4],
+								[f1, c1, b1]], 
+								new THREE.Vector3(1,0,0));
+		this.bottom = new Face([[b1, b2, b3],
+							[c1, c2, c3],
+							[f1, f2, f3]], 
+							new THREE.Vector3(0,1,0));
+		this.back = new Face(cubelets[2], new THREE.Vector3(0,0,1));
+
+
+
+		//debug stuff
+		this.front.name = "front";
+		this.back.name = "back";
+		this.top.name = "top";
+		this.right.name = "right";
+		this.left.name = "left";
+		this.bottom.name = "bottom";
+
+
+		new Edge().topOf(this.top).topOf(this.back);
+		new Edge().rightOf(this.top).topOf(this.right);
+		new Edge().bottomOf(this.top).topOf(this.front);
+		new Edge().leftOf(this.top).topOf(this.left);
+
+		new Edge().topOf(this.bottom).bottomOf(this.back);
+		new Edge().rightOf(this.bottom).bottomOf(this.right);
+		new Edge().bottomOf(this.bottom).bottomOf(this.front);
+		new Edge().leftOf(this.bottom).bottomOf(this.left);
+
+		new Edge().rightOf(this.front).leftOf(this.right);
+		new Edge().leftOf(this.front).rightOf(this.left);
+		new Edge().rightOf(this.back).rightOf(this.right);
+		new Edge().leftOf(this.back).leftOf(this.left);
+
+		// for (var i = 0; i < 4; i++) {
+		// 	setTimeout(function(){
+		// 		cube.bottom.rotate();
+		// 	},500*(i+1));
+		// }
+
+		// cube.front.rotate();
+		// cube.right.rotate();
+		// cube.top.rotate();
+		// cube.bottom.rotate();
+		// cube.left.rotate();
+		// cube.back.rotate();
+		
+		// cube.front.rotate();
+		// cube.top.rotate();
+		// cube.left.rotate();
+		// cube.right.rotate();
+		// cube.back.rotate();
+		// cube.bottom.rotate();
+
+		// this.remove(this.front.bottom[1]);
 
 	}
 
 
 	Cube.prototype = Object.assign(Object.create(THREE.Group.prototype),{constructor: Cube});
-
-	Cube.prototype.rotateFront = function(){
-		for (var i = 0; i < this.front.length; i++) {
-			for (var j = 0; j < this.front[i].length; j++) {
-				this.front[i][j].rotateAroundWorldAxis(new THREE.Vector3(0,0,1), -Math.PI/4);
-			};
-		};
-	}
-
 
 
 	return Cube;

@@ -1,45 +1,47 @@
-define(['three.min', 'app/Cubelet'], function(THREE){
+define(['three', 'app/Cubelet', 'app/Face'], function(){
 
-	function Edge(left, center, right){
-		THREE.Group.call(this);
+
+	function Edge(){
 		this.type = 'Edge';
-
-		
-		this.add(left,center,right);
-		/*
-
-		var underlay_cube = new THREE.Mesh(new THREE.BoxGeometry(0.999, 0.999, 0.999), new THREE.MeshPhongMaterial({color:underlay_color, side:THREE.DoubleSide}));
-		this.add(underlay_cube);
-
-		var Edge_geom = new THREE.PlaneGeometry(0.95,0.95);
-
-		var front_mat=new THREE.MeshPhongMaterial({color:front, side: THREE.DoubleSide});
-		var front_Edge=new THREE.Mesh(Edge_geom, front_mat);
-		front_Edge.translateZ(0.5);
-
-		this.add(front_Edge);
-		if(top!==undefined){
-			var top_mat=new THREE.MeshPhongMaterial({color:top, side: THREE.DoubleSide});
-			var top_Edge=new THREE.Mesh(Edge_geom, top_mat);
-
-			top_Edge.translateY(0.5);
-			top_Edge.rotateOnAxis(new THREE.Vector3(1,0,0),Math.PI/2);
-
-			this.add(top_Edge);
-		}
-		if(right!==undefined){
-			var right_mat=new THREE.MeshPhongMaterial({color:right, side: THREE.DoubleSide});
-			var right_Edge=new THREE.Mesh(Edge_geom, right_mat);
-
-			right_Edge.translateX(0.5);
-			right_Edge.rotateOnAxis(new THREE.Vector3(0,1,0),-Math.PI/2);
-
-			this.add(right_Edge);
-		}
-		*/
+		this.ports=[];
 	}
 
-	Edge.prototype = Object.assign(Object.create(THREE.Group.prototype),{constructor: Edge});
+	Edge.prototype.topOf = function(face){
+		this.ports.push(face);
+		face.topEdge=this;
+		return this;
+	}
+
+	Edge.prototype.rightOf = function(face){
+		this.ports.push(face);
+		face.rightEdge=this;
+		return this;
+	}
+
+	Edge.prototype.bottomOf = function(face){
+		this.ports.push(face);
+		face.bottomEdge=this;
+		return this;
+	}
+
+		Edge.prototype.leftOf = function(face){
+		this.ports.push(face);
+		face.leftEdge=this;
+		return this;
+	}
+
+
+
+	Edge.prototype.notifyChange = function(face_from, cubelets){
+		if(this.ports[0]===face_from){
+			this.ports[1].notifyChange(this, cubelets);
+		}
+		else{
+			this.ports[0].notifyChange(this, cubelets);
+		}
+	}
+
+
 
 	return Edge;
 });

@@ -72,7 +72,7 @@ define(['three'], function(THREE){
 			this.add(this.front_face);
 			return this;
 		}
-		this.front_face.material.color = color;
+		this.front_face.material.color.setHex(color);
 		return this;
 
 	}
@@ -85,7 +85,7 @@ define(['three'], function(THREE){
 			this.add(this.top_face);
 			return this;
 		}
-		this.top_face.material.color = color;
+		this.top_face.material.color.setHex(color);
 		return this;
 	}
 
@@ -98,7 +98,7 @@ define(['three'], function(THREE){
 			this.add(this.right_face);
 			return this;
 		}
-		this.right_face.material.color = color;
+		this.right_face.material.color.setHex(color);
 		return this;
 	}
 
@@ -111,7 +111,7 @@ define(['three'], function(THREE){
 			this.add(this.bottom_face);
 			return this;
 		}
-		this.bottom_face.material.color = color;
+		this.bottom_face.material.color.setHex(color);
 		return this;
 	}
 
@@ -123,7 +123,7 @@ define(['three'], function(THREE){
 			this.add(this.left_face);
 			return this;
 		}
-		this.left_face.material.color = color;
+		this.left_face.material.color.setHex(color);
 		return this;
 	}
 
@@ -134,7 +134,7 @@ define(['three'], function(THREE){
 			this.add(this.back_face);
 			return this;
 		}
-		this.back_face.material.color = color;
+		this.back_face.material.color.setHex(color);
 		return this;
 	}
 

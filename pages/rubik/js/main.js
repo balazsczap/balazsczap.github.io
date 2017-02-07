@@ -5,7 +5,7 @@ requirejs.config({
 	}
 });
 
-requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'app/Cube'], function(JQ, THREE, scene, Cubelet, Face, Cube){
+requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'app/Cube'], function($, THREE, scene, Cubelet, Face, Cube){
 
 
 	
@@ -30,7 +30,7 @@ requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'a
 	scene.add(pointLight);
 	scene.add(plight2);
 
-	var ambient = new THREE.AmbientLight( 0x101010 );
+	var ambient = new THREE.AmbientLight( 0x333333 );
 	scene.add( ambient );
 
 	var camera = scene.camera;
@@ -75,9 +75,26 @@ requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'a
 	}
 	render();
 
-	JQ(document).keypress(function(e){
-		if(e.charCode==97){
-			cube.rotateFront();
+	$(document).keypress(function(e){
+		switch(e.charCode){
+			case 102:
+				cube.front.rotate();
+				break;
+			case 116:
+				cube.top.rotate();
+				break;
+			case 114:
+				cube.right.rotate();
+				break;
+			case 108:
+				cube.left.rotate();
+				break;
+			case 100:
+				cube.bottom.rotate();
+				break;
+			case 98:
+				cube.back.rotate();
+				break;
 		}
 	});
 });
