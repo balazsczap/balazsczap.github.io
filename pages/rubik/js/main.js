@@ -8,10 +8,8 @@ requirejs.config({
 requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'app/Cube'], function($, THREE, scene, Cubelet, Face, Cube){
 
 
-	
 
 
-	
 
 
 	var pointLight = new THREE.PointLight(0xffffff, 5,10, 1);
@@ -79,6 +77,9 @@ requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'a
 		switch(e.charCode){
 			case 102:
 				cube.front.rotate();
+				break;
+			case 70:
+				cube.front.rotateBack();
 				break;
 			case 116:
 				cube.top.rotate();

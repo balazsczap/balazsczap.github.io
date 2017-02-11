@@ -28,25 +28,25 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 		var f8 = new Cubelet().front(colors.red).top(colors.white);
 		var f9 = new Cubelet().front(colors.red).top(colors.white).right(colors.blue);
 
-		var c5 = new Cubelet();
-		var c8 = new Cubelet().top(colors.white);
-		var c6 = new Cubelet().right(colors.blue);
-		var c4 = new Cubelet().left(colors.green);
-		var c2 = new Cubelet().bottom(colors.yellow);
-		var c7 = new Cubelet().left(colors.green).top(colors.white);
-		var c9 = new Cubelet().top(colors.white).right(colors.blue);
 		var c1 = new Cubelet().bottom(colors.yellow).left(colors.green);
+		var c2 = new Cubelet().bottom(colors.yellow);
 		var c3 = new Cubelet().right(colors.blue).bottom(colors.yellow);
+		var c4 = new Cubelet().left(colors.green);
+		var c5 = new Cubelet();
+		var c6 = new Cubelet().right(colors.blue);
+		var c7 = new Cubelet().left(colors.green).top(colors.white);
+		var c8 = new Cubelet().top(colors.white);
+		var c9 = new Cubelet().top(colors.white).right(colors.blue);
 
-		var b5 = new Cubelet().back(colors.orange);
-		var b8 = new Cubelet().back(colors.orange).top(colors.white);
-		var b6 = new Cubelet().back(colors.orange).right(colors.blue);
-		var b4 = new Cubelet().back(colors.orange).left(colors.green);
-		var b2 = new Cubelet().back(colors.orange).bottom(colors.yellow);
-		var b7 = new Cubelet().back(colors.orange).left(colors.green).top(colors.white);
-		var b9 = new Cubelet().back(colors.orange).top(colors.white).right(colors.blue);
 		var b1 = new Cubelet().back(colors.orange).bottom(colors.yellow).left(colors.green);
+		var b2 = new Cubelet().back(colors.orange).bottom(colors.yellow);
 		var b3 = new Cubelet().back(colors.orange).right(colors.blue).bottom(colors.yellow);
+		var b4 = new Cubelet().back(colors.orange).left(colors.green);
+		var b5 = new Cubelet().back(colors.orange);
+		var b6 = new Cubelet().back(colors.orange).right(colors.blue);
+		var b7 = new Cubelet().back(colors.orange).left(colors.green).top(colors.white);
+		var b8 = new Cubelet().back(colors.orange).top(colors.white);
+		var b9 = new Cubelet().back(colors.orange).top(colors.white).right(colors.blue);
 
 		var cubelets = [
 		[[f7,f8,f9],
@@ -144,7 +144,7 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 
 
 	Cube.prototype = Object.assign(Object.create(THREE.Group.prototype),{constructor: Cube});
-
+	
 
 	return Cube;
 });
