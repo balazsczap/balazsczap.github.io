@@ -102,27 +102,65 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 
 
 
-		this.front = new Face(this, this.cubelets[0], new THREE.Vector3(0,0,-1));
-		this.top = new Face(this, [[b7, b8, b9],
-							[c7, c8, c9],
-							[f7, f8, f9]], 
-							new THREE.Vector3(0,-1,0));
-		this.right = new Face(this, [[f9, c9, b9],
-								[f6, c6, b6],
-								[f3, c3, b3]], 
-								new THREE.Vector3(-1,0,0));
-		this.left = new Face(this, [[b7, f7, c7],
-								[b4, c4, f4],
-								[b1, c1, f1]], 
-								new THREE.Vector3(1,0,0));
-		this.bottom = new Face(this, [[b1, b2, b3],
-							[c1, c2, c3],
-							[f1, f2, f3]], 
-							new THREE.Vector3(0,1,0));
-		this.back = new Face(this, [[b7, b8, b9],
-							[b4, b5, b6],
-							[b1, b2, b3]],
-							new THREE.Vector3(0,0,1));
+		// this.front = new Face(this, this.cubelets[0], new THREE.Vector3(0,0,-1));
+		// this.top = new Face(this, [[b7, b8, b9],
+		// 					[c7, c8, c9],
+		// 					[f7, f8, f9]], 
+		// 					new THREE.Vector3(0,-1,0));
+		// this.right = new Face(this, [[f9, c9, b9],
+		// 						[f6, c6, b6],
+		// 						[f3, c3, b3]], 
+		// 						new THREE.Vector3(-1,0,0));
+		// this.left = new Face(this, [[b7, f7, c7],
+		// 						[b4, c4, f4],
+		// 						[b1, c1, f1]], 
+		// 						new THREE.Vector3(1,0,0));
+		// this.bottom = new Face(this, [[b1, b2, b3],
+		// 					[c1, c2, c3],
+		// 					[f1, f2, f3]], 
+		// 					new THREE.Vector3(0,1,0));
+		// this.back = new Face(this, [[b7, b8, b9],
+		// 					[b4, b5, b6],
+		// 					[b1, b2, b3]],
+		// 					new THREE.Vector3(0,0,1));	
+
+		this.front = new Face(this, 
+		   [[[0,0,0],[0,0,1],[0,0,2]],
+			[[0,1,0],[0,1,1],[0,1,2]],
+			[[0,2,0],[0,2,1],[0,2,2]]],
+			 new THREE.Vector3(0,0,-1));
+
+		this.top = new Face(this, 
+		   [[[2,0,0],[2,0,1],[2,0,2]],
+			[[1,0,0],[2,0,1],[2,0,2]],
+			[[0,0,0],[2,0,1],[2,0,2]]],
+			 new THREE.Vector3(0,-1,0));
+
+		this.right = new Face(this, 
+		   [[[0,0,2],[1,0,2],[2,0,2]],
+			[[0,1,2],[1,1,2],[2,1,2]],
+			[[0,2,2],[1,2,2],[2,2,2]]],
+			 new THREE.Vector3(-1,0,0));
+
+		this.left = new Face(this, 
+		   [[[2,0,0],[1,0,2],[0,0,0]],
+			[[2,1,0],[1,1,2],[0,1,0]],
+			[[2,2,0],[1,2,2],[0,2,0]]],
+			 new THREE.Vector3(1,0,0));
+
+		this.bottom = new Face(this, 
+		   [[[2,2,2],[2,2,1],[2,2,0]],
+			[[1,2,2],[1,2,1],[1,2,0]],
+			[[0,2,2],[0,2,1],[0,2,0]]],
+			 new THREE.Vector3(0,1,0));
+
+		this.back = new Face(this, 
+		   [[[2,0,2],[2,0,1],[2,0,0]],
+			[[2,1,2],[2,1,1],[2,1,0]],
+			[[2,2,2],[2,2,1],[2,2,0]]],
+			 new THREE.Vector3(0,0,1));
+
+
 
 
 

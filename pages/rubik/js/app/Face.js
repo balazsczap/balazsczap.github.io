@@ -155,13 +155,14 @@
 define(['three', 'app/Edge'], function(THREE, Edge){
 
 	var id_counter =0;
-	function Face(cube, cubelets, forwardDir){
+	function Face(cube, indices, forwardDir){
 		this.type = 'Face';
 		this.id=id_counter++;
 		this.cube = cube;
-		this.cubelets = cubelets;
+		// this.cubelets = cubelets;
+		this.indices = indices;
 		this.forwardDir = forwardDir;
-		this.refreshIndices();
+
 		/*
 			7->8->9
 				  |
@@ -174,69 +175,103 @@ define(['three', 'app/Edge'], function(THREE, Edge){
 
 	}
 
+	function indexWith(what, ind){
+		console.log(what);
+		console.log(ind);
+		return what[ind[0]][ind[1]][ind[2]];
+	}
+
+	function indexWithAssign(what,ind,val){
+		what[ind[0]][ind[1]][ind[2]] = val;
+	}
+
+	function flatten(arr){
+		return arr.reduce(function(flat, toFlatten){
+			return flat.concat(toFlatten);
+		}, []);
+	}
+	Face.prototype.getFlatFromIndices = function(){
+		var face = this;
+		var flatIndices = flatten(this.indices);
+		var cubelets = [];
+		flatIndices.forEach(function(index){
+			cubelets.push(indexWith(face.cube.cubelets, index));
+		});
+
+		return cubelets;
+	}
+
+
 	Face.prototype.rotate = function(){
 		var face = this;
 		face.rotateLogical();
-		face.cubelets.forEach(function(e){
-			e.forEach(function(i){
-				i.rotateAroundWorldAxis(face.forwardDir,Math.PI/2);
-			});
+		face.getFlatFromIndices().forEach(function(cubelet){
+			cubelet.rotateAroundWorldAxis(face.forwardDir,Math.PI/2);
 		});
 	}
 
-	Face.prototype.refreshIndices = function(){
-		this.indices = [];
-		for(var i=0; i<this.cubelets.length;++i){
-			this.indices.push([]);
-			for(var j=0; j<this.cubelets[i].length;++j){
-				this.indices[i].push(this.cube.indexOf(this.cubelets[i][j]));
-			}
-		}
-	}
-
-	Face.prototype.refreshCubeletsFromCube = function(){
-		for(var i=0; i<this.cubelets.length;++i){
-			for(var j=0; j<this.cubelets[i].length;++j){
-				this.cubelets[i][j] = this.cube.elementAt(this.indices[i][j]);
-			}
-		}
-	}
-
-
-	Face.prototype.refreshCubeletsToCube = function(){
-		for(var i=0; i<this.cubelets.length;++i){
-			for(var j=0; j<this.cubelets[i].length;++j){
-				this.cube.assign(this.indices[i][j], this.cubelets[i][j]);
-			}
-		}
-	}
-
 	Face.prototype.rotateLogical = function(){
+		var cube = this.cube;
+		var face = this;
+		var ind = this.indices;
+		
+		var temp = indexWith(cube.cubelets, ind[0][0]);
+		console.log(temp); 
+	}
 
-		this.refreshCubeletsFromCube();
+	// Face.prototype.refreshIndices = function(){
+	// 	this.indices = [];
+	// 	for(var i=0; i<this.cubelets.length;++i){
+	// 		this.indices.push([]);
+	// 		for(var j=0; j<this.cubelets[i].length;++j){
+	// 			this.indices[i].push(this.cube.indexOf(this.cubelets[i][j]));
+	// 		}
+	// 	}
+	// }
 
-		var cubelets_rotated = [];
-		cubelets_rotated.push([this.cubelets[2][0], this.cubelets[1][0], this.cubelets[0][0]]);
-		cubelets_rotated.push([this.cubelets[2][1], this.cubelets[1][1], this.cubelets[0][1]]);
-		cubelets_rotated.push([this.cubelets[2][2], this.cubelets[1][2], this.cubelets[0][2]]);
-		this.cubelets = cubelets_rotated;
+	// Face.prototype.refreshCubeletsFromCube = function(){
+	// 	for(var i=0; i<this.cubelets.length;++i){
+	// 		for(var j=0; j<this.cubelets[i].length;++j){
+	// 			this.cubelets[i][j] = this.cube.elementAt(this.indices[i][j]);
+	// 		}
+	// 	}
+	// }
 
-		this.refreshCubeletsToCube();
 
-		// for(var i=0; i<this.top.length-1;++i) this.edgeCubelets.push(this.edgeCubelets.shift());
+	// Face.prototype.refreshCubeletsToCube = function(){
+	// 	for(var i=0; i<this.cubelets.length;++i){
+	// 		for(var j=0; j<this.cubelets[i].length;++j){
+	// 			this.cube.assign(this.indices[i][j], this.cubelets[i][j]);
+	// 		}
+	// 	}
+	// }
 
-		// face.cube.updateCubelets(function(cubelets){
-		// 	for(var i=0; i<face.indices.length;++i){
-		// 		for(var j=0; j<face.indices[i].length;++j){
-		// 			var [cube_layer, cube_i, cube_j] = [face.edgeIndices.layer, face.edgeIndices.i, face.edgeIndices.j];
-		// 			cubelets[cube_layer][cube_i][cube_j] = cubelets_rotated[i][j];
-		// 		}
-		// 	}
-		// 	return cubelets;
-		// })
+	// Face.prototype.rotateLogical = function(){
+
+	// 	this.refreshCubeletsFromCube();
+
+	// 	var cubelets_rotated = [];
+	// 	cubelets_rotated.push([this.cubelets[2][0], this.cubelets[1][0], this.cubelets[0][0]]);
+	// 	cubelets_rotated.push([this.cubelets[2][1], this.cubelets[1][1], this.cubelets[0][1]]);
+	// 	cubelets_rotated.push([this.cubelets[2][2], this.cubelets[1][2], this.cubelets[0][2]]);
+	// 	this.cubelets = cubelets_rotated;
+
+	// 	this.refreshCubeletsToCube();
+
+	// 	// for(var i=0; i<this.top.length-1;++i) this.edgeCubelets.push(this.edgeCubelets.shift());
+
+	// 	// face.cube.updateCubelets(function(cubelets){
+	// 	// 	for(var i=0; i<face.indices.length;++i){
+	// 	// 		for(var j=0; j<face.indices[i].length;++j){
+	// 	// 			var [cube_layer, cube_i, cube_j] = [face.edgeIndices.layer, face.edgeIndices.i, face.edgeIndices.j];
+	// 	// 			cubelets[cube_layer][cube_i][cube_j] = cubelets_rotated[i][j];
+	// 	// 		}
+	// 	// 	}
+	// 	// 	return cubelets;
+	// 	// })
 
 	
-	}
+	// }
 	return Face;
 });
 
