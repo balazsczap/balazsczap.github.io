@@ -5,7 +5,7 @@ body{
 
 }
 #main_container{
-	width:50%;
+	width:75%;
 	margin:auto;
 	font-family: 'Lato', sans-serif;
 	/*font-family: 'Inconsolata', monospace;*/
@@ -27,7 +27,7 @@ body{
 h1{
 	justify-content:center;
 	align-items:center;
-	width:50%;
+	width:100%;
 	margin:auto;
 	display:flex;
 	text-transform: uppercase;
@@ -40,7 +40,7 @@ h1{
 h3{
 	justify-content:center;
 	align-items:center;
-	width:50%;
+	width:86%;
 	margin:auto;
 	display:flex;
 	text-transform: uppercase;
