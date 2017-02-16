@@ -9,7 +9,32 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 		black: 0x333333
 	}
 
+	function indexOf(array,item){
+		function i_of(array, item, index_letter, index_obj){
+			const nextChar = function(c){
+				var code = c.charCodeAt(0);
+				return String.fromCharCode(code+1);
+			}
 
+			if((index = array.indexOf(item))>=0){
+				index_obj[index_letter] = index; 
+				return index_obj
+			}
+			for(var i=0; i<array.length;++i){
+				if(Array.isArray(array[i])){
+					var ret;
+					if((ret = i_of(array[i], item, nextChar(index_letter), index_obj))!=-1){
+						ret[index_letter] = i;
+						return ret;
+					}
+
+				}
+			}
+			return -1;
+		}
+
+		return i_of(array,item,'h', {});
+	}
 
 	function Cube(){
 		THREE.Group.call(this);
@@ -48,7 +73,7 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 		var b8 = new Cubelet().back(colors.orange).top(colors.white);
 		var b9 = new Cubelet().back(colors.orange).top(colors.white).right(colors.blue);
 
-		var cubelets = [
+		this.cubelets = [
 		[[f7,f8,f9],
 		 [f4,f5,f6],
 		 [f1,f2,f3]],
@@ -66,31 +91,39 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 		for(var layer=-1; layer<=1;++layer){
 			for(var i=-1; i<=1; ++i){
 				for(var j=-1; j<=1; ++j){
-					var current = cubelets[layer+1][i+1][j+1];
+					var current = this.cubelets[layer+1][i+1][j+1];
 					current.translateOnAxis(new THREE.Vector3(j, -i, -layer), 1);
 					this.add(current);
 				}
 			}
 		}
 
-		this.front = new Face(cubelets[0], new THREE.Vector3(0,0,-1));
-		this.top = new Face([[b7, b8, b9],
+
+
+
+
+		this.front = new Face(this, this.cubelets[0], new THREE.Vector3(0,0,-1));
+		this.top = new Face(this, [[b7, b8, b9],
 							[c7, c8, c9],
 							[f7, f8, f9]], 
 							new THREE.Vector3(0,-1,0));
-		this.right = new Face([[f9, c9, b9],
+		this.right = new Face(this, [[f9, c9, b9],
 								[f6, c6, b6],
 								[f3, c3, b3]], 
 								new THREE.Vector3(-1,0,0));
-		this.left = new Face([[f7, c7, b7],
-								[f4, c4, b4],
-								[f1, c1, b1]], 
+		this.left = new Face(this, [[b7, f7, c7],
+								[b4, c4, f4],
+								[b1, c1, f1]], 
 								new THREE.Vector3(1,0,0));
-		this.bottom = new Face([[b1, b2, b3],
+		this.bottom = new Face(this, [[b1, b2, b3],
 							[c1, c2, c3],
 							[f1, f2, f3]], 
 							new THREE.Vector3(0,1,0));
-		this.back = new Face(cubelets[2], new THREE.Vector3(0,0,1));
+		this.back = new Face(this, [[b7, b8, b9],
+							[b4, b5, b6],
+							[b1, b2, b3]],
+							new THREE.Vector3(0,0,1));
+
 
 
 
@@ -103,20 +136,20 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 		this.bottom.name = "bottom";
 
 
-		new Edge().topOf(this.top).topOf(this.back);
-		new Edge().rightOf(this.top).topOf(this.right);
-		new Edge().bottomOf(this.top).topOf(this.front);
-		new Edge().leftOf(this.top).topOf(this.left);
+		// new Edge().topOf(this.top).topOf(this.back);
+		// new Edge().rightOf(this.top).topOf(this.right);
+		// new Edge().bottomOf(this.top).topOf(this.front);
+		// new Edge().leftOf(this.top).topOf(this.left);
 
-		new Edge().topOf(this.bottom).bottomOf(this.back);
-		new Edge().rightOf(this.bottom).bottomOf(this.right);
-		new Edge().bottomOf(this.bottom).bottomOf(this.front);
-		new Edge().leftOf(this.bottom).bottomOf(this.left);
+		// new Edge().topOf(this.bottom).bottomOf(this.back);
+		// new Edge().rightOf(this.bottom).bottomOf(this.right);
+		// new Edge().bottomOf(this.bottom).bottomOf(this.front);
+		// new Edge().leftOf(this.bottom).bottomOf(this.left);
 
-		new Edge().rightOf(this.front).leftOf(this.right);
-		new Edge().leftOf(this.front).rightOf(this.left);
-		new Edge().rightOf(this.back).rightOf(this.right);
-		new Edge().leftOf(this.back).leftOf(this.left);
+		// new Edge().rightOf(this.front).leftOf(this.right);
+		// new Edge().leftOf(this.front).rightOf(this.left);
+		// new Edge().rightOf(this.back).rightOf(this.right);
+		// new Edge().leftOf(this.back).leftOf(this.left);
 
 		// for (var i = 0; i < 4; i++) {
 		// 	setTimeout(function(){
@@ -124,8 +157,8 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 		// 	},500*(i+1));
 		// }
 
-		// cube.front.rotate();
-		// cube.right.rotate();
+
+		console.log(cube);
 		// cube.top.rotate();
 		// cube.bottom.rotate();
 		// cube.left.rotate();
@@ -145,6 +178,23 @@ define(['three', 'app/Cubelet', 'app/Face', 'app/Edge'], function(THREE, Cubelet
 
 	Cube.prototype = Object.assign(Object.create(THREE.Group.prototype),{constructor: Cube});
 	
+
+	Cube.prototype.swap = function(current, next){
+		var indexObj = indexOf(this.cubelets, current);
+		this.cubelets[indexObj.h][indexObj.i][indexObj.j] = next;
+	}
+
+	Cube.prototype.indexOf = function(item){
+		return indexOf(this.cubelets,item);
+	}
+
+	Cube.prototype.elementAt = function(indexObj){
+		return this.cubelets[indexObj.h][indexObj.i][indexObj.j];
+	}
+
+	Cube.prototype.assign = function(indexObj, item){
+		this.cubelets[indexObj.h][indexObj.i][indexObj.j] = item;
+	}
 
 	return Cube;
 });

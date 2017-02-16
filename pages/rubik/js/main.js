@@ -5,7 +5,78 @@ requirejs.config({
 	}
 });
 
+// function indexOf(array,item){
+// 	function i_of(array, item, index_letter, index_obj){
+// 		const nextChar = function(c){
+// 			var code = c.charCodeAt(0);
+// 			return String.fromCharCode(code+1);
+// 		}
+
+// 		if((index = array.indexOf(item))>=0){
+// 			index_obj[index_letter] = index; 
+// 			return index_obj
+// 		}
+// 		for(var i=0; i<array.length;++i){
+// 			if(Array.isArray(array[i])){
+// 				var ret;
+// 				if((ret = i_of(array[i], item, nextChar(index_letter), index_obj))!=-1){
+// 					ret[index_letter] = i;
+// 					return ret;
+// 				}
+
+// 			}
+// 		}
+// 		return -1;
+// 	}
+
+// 	return i_of(array,item,'h', {});
+// }
+
+
 requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'app/Cube'], function($, THREE, scene, Cubelet, Face, Cube){
+	// var f1 = 11;
+	// var f2 = 12;
+	// var f3 = 13;
+	// var f4 = 14;
+	// var f5 = 15;
+	// var f6 = 16;
+	// var f7 = 17;
+	// var f8 = 18;
+	// var f9 = 19;
+
+	// var c1 = 21;
+	// var c2 = 22;
+	// var c3 = 23;
+	// var c4 = 24;
+	// var c5 = 25;
+	// var c6 = 26;
+	// var c7 = 27;
+	// var c8 = 28;
+	// var c9 = 29;
+
+	// var b1 = 31;
+	// var b2 = 32;
+	// var b3 = 33;
+	// var b4 = 34;
+	// var b5 = 35;
+	// var b6 = 36;
+	// var b7 = 37;
+	// var b8 = 38;
+	// var b9 = 39;
+	// var cubelets = [
+	// [[f7,f8,f9],
+	//  [f4,f5,f6],
+	//  [f1,f2,f3]],
+
+	// [[c7,c8,c9],
+	//  [c4,c5,c6],
+	//  [c1,c2,c3]],
+
+	// [[b7,b8,b9],
+	//  [b4,b5,b6],
+	//  [b1,b2,b3]]
+	// ]; 
+
 
 
 
@@ -42,14 +113,14 @@ requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'a
 
 	var cube = new Cube();
 	scene.add(cube);
-	// var c1 = new Cubelet(colors.red, colors.white, colors.blue);
+	// var c1 = 21;
 	// scene.add(c1);
 
-	// var c2 = new Cubelet(colors.red, colors.white);
+	// var c2 = 22;
 	// c2.translateX(-1);
 	// scene.add(c2);
 
-	// var c3 = new Cubelet(colors.red, colors.green, colors.white);
+	// var c3 = 23;
 	// c3.translateX(-2);
 	// c3.rotateOnAxis(new THREE.Vector3(0,0,1), Math.PI/2);
 	// scene.add(c3);
@@ -78,9 +149,9 @@ requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'a
 			case 102:
 				cube.front.rotate();
 				break;
-			case 70:
-				cube.front.rotateBack();
-				break;
+			// case 70:
+			// 	cube.front.rotateBack();
+			// 	break;
 			case 116:
 				cube.top.rotate();
 				break;
@@ -92,10 +163,13 @@ requirejs(['require-jquery', 'three', 'app/Scene', 'app/Cubelet', 'app/Face', 'a
 				break;
 			case 100:
 				cube.bottom.rotate();
+				console.log(cube);
 				break;
 			case 98:
 				cube.back.rotate();
+				console.log(cube);
 				break;
 		}
 	});
+
 });
