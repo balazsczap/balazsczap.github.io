@@ -2,8 +2,7 @@
 <html>
   <head>
       <meta charset="utf-8" />
-      <title>access</title>
-      <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+      <title>sql</title>
       <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(248, 248, 242); overflow: auto; background-color: rgb(40, 40, 40); }
 .markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
 .markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
@@ -27,14 +26,14 @@
 .markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(60, 60, 60); }
 .markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(50, 50, 50); }
 .markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(81, 81, 81) rgb(81, 81, 81) rgb(66, 66, 66); background-color: rgb(60, 60, 60); }
-.markdown-preview[data-use-github-style] { font-family: "Roboto", "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
 .markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
 .markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
 .markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
 .markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
 .markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
 .markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
-.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: normal; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
 .markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
 .markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
 .markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
@@ -135,7 +134,7 @@
 .markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
 .markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
 .markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
-.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: normal; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
 .markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
 .markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
 .markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
@@ -203,7 +202,7 @@
 .scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
 .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
 .markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
-.markdown-preview.markdown-preview h1, .markdown-preview.markdown-preview h2, .markdown-preview.markdown-preview h3, .markdown-preview.markdown-preview h4, .markdown-preview.markdown-preview h5 { color: #1976D2; padding-bottom: 0px; }
+.markdown-preview.markdown-preview h1, .markdown-preview.markdown-preview h2, .markdown-preview.markdown-preview h3, .markdown-preview.markdown-preview h4, .markdown-preview.markdown-preview h5 { color: rgb(101, 140, 255); padding-bottom: 0px; }
 .bracket-matcher .region {
   border-bottom: 1px dotted lime;
   position: absolute;
@@ -295,7 +294,7 @@ pre.editor-colors .syntax--gfm .syntax--link .syntax--entity {
   color: #a6e22e;
 }
 .syntax--entity.syntax--name.syntax--instance {
-  color: #689F38;
+  color: #66d9ef;
 }
 .syntax--entity.syntax--name.syntax--tag {
   color: #f92672;
@@ -316,7 +315,7 @@ pre.editor-colors .syntax--gfm .syntax--link .syntax--entity {
   background-color: #ae81ff;
 }
 .syntax--keyword {
-  color: #1976D2 !important;
+  color: #f92672 !important;
 }
 .syntax--meta.syntax--tag {
   color: #f8f8f2;
@@ -326,19 +325,19 @@ pre.editor-colors .syntax--gfm .syntax--link .syntax--entity {
 }
 .syntax--storage.syntax--type {
   font-style: italic;
-  color: #689F38;
+  color: #66d9ef;
 }
 .syntax--string {
-  color: #E65100;
+  color: #e6db74;
 }
 .syntax--support.syntax--constant,
 .syntax--support.syntax--function {
-  color: #689F38;
+  color: #66d9ef;
 }
 .syntax--support.syntax--class,
 .syntax--support.syntax--type {
   font-style: italic;
-  color: #689F38;
+  color: #66d9ef;
 }
 .syntax--variable.syntax--parameter {
   font-style: italic;
@@ -460,7 +459,7 @@ pre.editor-colors .syntax--gfm .syntax--link .syntax--entity {
 <p>Csak azokat a sorokat adja vissza eredményként, ahol a logikai kifejezés értéke igaz.</p>
 <p>Például a felnőtt emberek kilistázása:</p>
 <pre class="editor-colors lang-sql"><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>SELECT</span></span><span>&nbsp;Név,&nbsp;Kor</span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>FROM</span></span><span>&nbsp;Ember</span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>WHERE</span></span><span>&nbsp;Kor&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;=</span></span><span>&nbsp;</span><span class="syntax--constant syntax--numeric syntax--sql"><span>18</span></span></span></div></pre>
-<h3 id="-logikai-kifejez-s-lehet-"><code>&lt;logikai kifejezés&gt;</code> lehet:</h3>
+<h3 id="-logikai-kifejez-s-lehet-"><code>&lt;Logikai kifejezés&gt;</code> lehet:</h3>
 <h5 id="rel-ci-k-">Relációk:</h5>
 <p>(&lt;, &lt;=, =, &lt;&gt;, &gt;=, &gt;);</p>
 <pre class="editor-colors lang-sql"><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>oszlopnév</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;=</span></span><span>&nbsp;szám</span></span></div></pre>
@@ -479,6 +478,9 @@ pre.editor-colors .syntax--gfm .syntax--link .syntax--entity {
 <p>A minta egy szöveg, kiegészítve % (bármennyi karakter) és _ (egy karakter) jelekkel.</p>
 <p>Például a N-vel kezdődő nevű emberek listázása:</p>
 <pre class="editor-colors lang-sql"><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>SELECT</span></span><span>&nbsp;Név,&nbsp;Kor</span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>FROM</span></span><span>&nbsp;Ember</span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>WHERE</span></span><span>&nbsp;Kor&nbsp;</span><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>LIKE</span></span><span>&nbsp;</span><span class="syntax--string syntax--quoted syntax--single syntax--sql"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--sql"><span>&#39;</span></span><span>N%</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--sql"><span>&#39;</span></span></span></span></div></pre>
+<p>Létezik ennek a negálása is:</p>
+<p>Például azok az emberek, akinek a neve nem N-el kezdődik:</p>
+<pre class="editor-colors lang-sql"><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>SELECT</span></span><span>&nbsp;Név,&nbsp;Kor</span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>FROM</span></span><span>&nbsp;Ember</span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>WHERE</span></span><span>&nbsp;Kor&nbsp;</span><span class="syntax--keyword syntax--other syntax--not syntax--sql"><span>NOT</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>LIKE</span></span><span>&nbsp;</span><span class="syntax--string syntax--quoted syntax--single syntax--sql"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--sql"><span>&#39;</span></span><span>N%</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--sql"><span>&#39;</span></span></span></span></div></pre>
 <h2 id="rendez-s-">Rendezés:</h2>
 <pre class="editor-colors lang-sql"><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>SELECT</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>oszlopnevek</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>FROM</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>tábla</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>WHERE</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>logikai&nbsp;kifejezés</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>ORDER&nbsp;BY</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>oszlopnevek</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>sorrend</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span></span></div></pre>
 <p>Sorrend helyére ASC (=növekvő) és DESC (=csökkenő) írható, ha nem írsz oda semmit, ASC az alapértelmezett.<br>Lehet több oszlop szerint is rendezni.</p>
@@ -492,13 +494,13 @@ pre.editor-colors .syntax--gfm .syntax--link .syntax--entity {
 <h2 id="oszlopf-ggv-nyek-">Oszlopfüggvények:</h2>
 <p>Egy tábla egy oszlopán értelmezzük, és egy értékket ad.<br>Sokféle van, leginkább számot tartalmazó oszlopokra:</p>
 <ul>
-<li><span class="syntax--support syntax--function syntax--aggregate syntax--sql"><span>AVG</span></span><span>()</span></span> : az oszlop összes értékének az átlagát veszi</li>
-<li><span class="syntax--support syntax--function syntax--aggregate syntax--sql"><span>COUNT</span></span><span>()</span></span> az oszlopban található sorok száma (azaz a tábla sorainak száma)</li>
-<li><span class="syntax--support syntax--function syntax--aggregate syntax--sql"><span>FIRST</span></span><span>()</span></span>: az oszlop első értéke</li>
-<li><span class="syntax--support syntax--function syntax--aggregate syntax--sql"><span>LAST</span></span><span>()</span></span>: az oszlop utolsó értéke</li>
-<li><span class="syntax--support syntax--function syntax--aggregate syntax--sql"><span>MAX</span></span><span>()</span></span>: az oszlop legnagyobb értéke</li>
-<li><span class="syntax--support syntax--function syntax--aggregate syntax--sql"><span>MIN</span></span><span>()</span></span>: az oszlop legkisebb értéke</li>
-<li><span class="syntax--support syntax--function syntax--aggregate syntax--sql"><span>SUM</span></span><span>()</span></span>: az oszlop értékeinek az összege</li>
+<li>AVG() : az oszlop összes értékének az átlagát veszi</li>
+<li>COUNT() az oszlopban található sorok száma (azaz a tábla sorainak száma)</li>
+<li>FIRST(): az oszlop első értéke</li>
+<li>LAST(): az oszlop utolsó értéke</li>
+<li>MAX(): az oszlop legnagyobb értéke</li>
+<li>MIN(): az oszlop legkisebb értéke</li>
+<li>SUM(): az oszlop értékeinek az összege</li>
 </ul>
 <p>Használat:</p>
 <pre class="editor-colors lang-sql"><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>SELECT</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>oszlopfüggvény</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span><span>(</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>oszlopnév</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span><span>)</span></span></div><div class="line"><span class="syntax--source syntax--sql"><span class="syntax--keyword syntax--other syntax--DML syntax--sql"><span>FROM</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&lt;</span></span><span>tábla</span><span class="syntax--keyword syntax--operator syntax--comparison syntax--sql"><span>&gt;</span></span></span></div><div class="line"><span class="syntax--source syntax--sql"><span>...&nbsp;(mehet&nbsp;ide&nbsp;illesztés,&nbsp;szűrés,&nbsp;rendezés...)</span></span></div></pre>

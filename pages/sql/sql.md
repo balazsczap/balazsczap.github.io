@@ -150,6 +150,16 @@ FROM Ember
 WHERE Kor LIKE 'N%'
 ```
 
+Létezik ennek a negálása is:
+
+Például azok az emberek, akinek a neve nem N-el kezdődik:
+
+```sql
+SELECT Név, Kor
+FROM Ember
+WHERE Kor NOT LIKE 'N%'
+```
+
 ## Rendezés:
 
 ```sql
@@ -258,5 +268,5 @@ Például gazdák szerint csoportosítva a macskákik átlagéletkora, de csak a
 ```sql
 SELECT AVG(Kor)
 FROM Macska
-GROUP BY AVG(Kor) > 3
+HAVING AVG(Kor) > 3
 ```
