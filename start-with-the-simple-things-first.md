@@ -2,11 +2,9 @@
 permalink: /start-with-the-simple-things-first
 ---
 
-# Start with the simple things first
-
 [⬅ Back](/) 
 
-## Start with the simple things first
+# Start with the simple things first
 
 Recently I wanted to have a place where I share my thoughts. There's a lot of growth happening at TIER for me, and I feel like I don't have good resources to read and I'm reinveting thought I haven't heard before, but I should have (needed to have).
 
