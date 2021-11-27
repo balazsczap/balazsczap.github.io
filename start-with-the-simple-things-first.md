@@ -2,10 +2,6 @@
 permalink: /start-with-the-simple-things-first
 ---
 
----
-permalink: /start-with-the-simple-things-first
----
-
 [⬅ Back](/) 
 
 ## Start with the simple things first
