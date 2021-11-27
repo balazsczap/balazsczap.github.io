@@ -32,8 +32,8 @@ I want a diagram of that here but drawing in paint is hard, need to find a bette
 
 So here we are. A new repo on Github (actually just cleaned up an one), opened up the new VSCode editor in Github (amazing where technology and dev tooling has gotten, and I'm not even long in the industry).
 
-Github Pages automatically publishes whatever you commit as long as it can find an ~index.html~ `index.md` in your root.
-~Apparently supports markdown as well, so to get writing actually took like 2 minutes of HTML coding.~
+Github Pages automatically publishes whatever you commit as long as it can find an ~~index.html~~ `index.md` in your root.
+~~Apparently supports markdown as well, so to get writing actually took like 2 minutes of HTML coding.~~
 After spending 15 more minutes on it, apparently if you create `.md` files, GH pages automatically applies a theme to it, so it's actually readable 😀
 
 Thanks,
