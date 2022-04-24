@@ -6,9 +6,9 @@ permalink: /start-with-the-simple-things-first
 
 # Start with the simple things first
 
-Recently I wanted to have a place where I share my thoughts. There's a lot of growth happening at TIER for me, and I feel like I don't have good resources to read and I'm reinveting thought I haven't heard before, but I should have (needed to have).
+Recently I wanted to have a place where I share my thoughts. There's a lot of growth happening for me, and I feel like I don't have good resources to read and I'm reinveting thoughts I haven't heard before, but should have. Clarifying them into writing will probably be useful for the future.
 
-So a blog. There's lots of different options out there, like Wordpress, Medium, whatever. Those feel too stuffy and I don't really like to read them as a user anyway. 
+So a blog. How do you start one? There's lots of different options out there, like Wordpress, Medium, whatever. Those feel too stuffy and I don't really like to read them as a user anyway. 
 
 I did web development in the past, so I was thinking of setting up a site with Ghost, or Gatsby+Ghost, just to get into the new stuff available. Then I also did some CI/CD stuff, so setting up a blog entirely from terraform with hosting, domains, etc, would have been really interesting, and it would also showcase my skills.
 
@@ -21,21 +21,20 @@ One more insight in that: doing something repeatedly that's out of your comfort 
 
 Something similar happened when I successfully started regularly exercising: buying some kettlebells for home, so it literally requires just the effort of standing up and starting, you don't have to go to a gym, pay some fee that you don't actually want to, etc. 
 
-After a while, the thought of skipping the exercise really started to make feel bad. I still hate (some days more than others) doing the exercises, but with an internal pressure of not skipping it, adding some extra bar before starting (like going down to the gym) could be now feasible.
+After a while, the thought of skipping the exercise really started to make me feel bad. I still dislike (some days more than others) doing the exercises, but with an internal pressure of not skipping it, adding some extra bar before starting (like going down to the gym) could be now feasible.
 
-Maybe that's the insight: you need to balance a mental pressure before you actually get started with something.
+Maybe that's the insight: you need to balance the mental pressure before you actually get started with something.
 
 - At the start, motivation can overcome the extra difficulty of going to the gym.
-- Motivation is a temporary thing. It dissipates somewhat quickly. If you can keep yourself motivated for long enough ("not burning away your motivation budget"), doing it becomes a habit, and habits are hard to break away from.
-- So on the long term, the habit can support a higher level of starting difficulty, than motivation ever could.
+- Motivation is a temporary thing. It dissipates quickly. If you can keep yourself motivated for long enough ("not burning away your motivation budget"), doing it becomes a habit, and habits are hard to break away from.
+- So in the long term, the habit can support a higher level of restarting difficulty, than motivation ever could.
 
-I want a diagram of that here but drawing in paint is hard, need to find a better tool.
+I want a diagram of that here but drawing in paint is hard. I'll need to find a better tool.
 
-So here we are. A new repo on Github (actually just cleaned up an one), opened up the new VSCode editor in Github (amazing where technology and dev tooling has gotten, and I'm not even long in the industry).
+So here we are. A new repo on GitHub, opened up the new VSCode editor in GitHub (amazing where dev tooling has gotten, and I haven't even been long in the industry).
 
-Github Pages automatically publishes whatever you commit as long as it can find an ~~index.html~~ `index.md` in your root.
-~~Apparently supports markdown as well, so to get writing actually took like 2 minutes of HTML coding.~~
+Github Pages automatically publishes whatever you commit as long as it can find an `index.md` in your root.
+
 After spending 15 more minutes on it, apparently if you create `.md` files, GH pages automatically applies a theme to it, so it's actually readable 😀
 
-Thanks,
-Balázs
+Hopefully, this makes the process of sitting down and starting writing just easier enough so I can actually stick to it as a habit.
