@@ -1,0 +1,52 @@
+---
+permalink: /time-based-rules
+---
+
+[⬅ Back](/) 
+
+# Using google calendar for time-based rules
+
+We've been working around having time based rules in the sytem for years. Zones that are only active, prompts in the app are only available in the evening, <some other example> were all wishes the company wished very hard for, but engineers kept pushing it back. 
+We had a problem this time, because we definitely wanted to have a prompt for driving under influence prevention available in the app. This is how we solved it.
+
+___
+
+Driving under influence is a problem with electric scooters, so we wanted to introduce a way to raise some awareness. Our designers created multiple prototypes and we selected the best one, but after interviewing the cities we found that they definitely didn't want any kind of awareness raising to be shown during the day. For probably the hundredth time, an engineer someone in the world (me) started having panic attacks because this problem was still not solved, but we had to find a way to do it this time.
+
+We sat down to the drawing board and came up with some rules the local teams might think of:
+
+- every day from 5pm to 11pm (sounds simple enough)
+- friday to sunday all day (so we need to be able to define only some days, okay)
+- friday to sunday, from 5pm to 11pm (so we need to be able to define only some times too, still sounds sensible)
+- friday to sunday 10pm to 3am (is that friday 10pm-midnight, and saturday midnight-3am? are the daily rules overlapping?)
+- friday to sunday, 10pm to 3am, except every second week add thursday too (do we need biweekly repetitions?)
+- friday and saturday, 10pm to 3am, sunday 10pm to 1am only because next day people work (how many different rules is this???)
+- friday to sunday, 10pm to 3am, except on May 11th in 2023 because the next day is a working day (do we need to make some set-intersection logic with rules????)
+- August 20th 5pm to August 20th 5pm continuously since there's a festival (okay but during that do we still need the friday-sunday rule?)
+- a single hour on a single saturday afternoon since there's a big match (what about all the other rules though???)
+
+And I've created this list in the evening while writing this article, so you can imagine how large the imaginable space of these rules could be. From any time to any time, with any custom repetition and exclusions and extensions and YIKES.
+
+For the first few examples, a specification where you define a time and a set of days could make sense:
+```
+timeStart: 5pm
+timeEnd: 11pm
+days: fri, sat, sun
+```
+
+But what do you do with rules reaching over midnight? You could have multiple rules:
+```
+rules:
+- timeStart: 5pm
+  timeEnd: 12am
+  days: fri, sat, sun
+- timeStart: 5pm
+  timeEnd: 12am
+  days: fri, sat, sun
+
+
+
+
+
+
+
