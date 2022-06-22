@@ -27,22 +27,66 @@ We sat down to the drawing board and came up with some rules the local teams mig
 
 And I've created this list in the evening while writing this article, so you can imagine how large the imaginable space of these rules could be. From any time to any time, with any custom repetition and exclusions and extensions and YIKES.
 
-For the first few examples, a specification where you define a time and a set of days could make sense:
+For the first few examples, a specification where you define a time and a set of days could make sense (excuse the pseudo-YAML):
+
 ```
 timeStart: 5pm
 timeEnd: 11pm
 days: fri, sat, sun
 ```
 
-But what do you do with rules reaching over midnight? You could have multiple rules:
+But what do you do with rules reaching over midnight? You could have multiple rules, and just go over all of them and see if one applies:
+
 ```
 rules:
-- timeStart: 5pm
-  timeEnd: 12am
-  days: fri, sat, sun
-- timeStart: 5pm
-  timeEnd: 12am
-  days: fri, sat, sun
+  - timeStart: 10pm
+    timeEnd: 12am
+    days: fri, sat, sun
+  - timeStart: 12am
+    timeEnd: 3am
+    days: sat, sun, mon
+```
+
+This almost covers everything, so a single weeks repetition is enough. We still need to introduce exclusions and one-off extensions:
+
+```
+rules:
+  - timeStart: 10pm
+    timeEnd: 12am
+    days: fri, sat, sun
+  - timeStart: 12am
+    timeEnd: 3am
+    days: sat, sun, mon
+  - timeStart: 12am
+    timeEnd: 3am
+    days: mon
+    exclude: true
+  - timeStart: 12am
+    timeEnd: 3am
+    date: 2023-05-11
+```
+
+(We also consider having timestamp ranges with some rule to repeat them, but then the repetition rules are what become super messy (repeat for 3 days, then skip 2) etc.)
+
+We didn't even discuss the implementation, but you think about configuring this every time, and changing that configuration. This is where you start to really panic and invoke upon the might of the team's PM to ask cities to maybe please just be NORMAL (in your mental model) - but cities realllllly want to show a screen in the app for their football game.
+
+There's one tool which handles this kind of time complexity really well: calendars. Just imagine it. You can create any kind of event length, with a lot of options to repeat them, do one-off exclusions on the repeated occurrences, do one-off events, have overlapping rules - it's all we ever wanted. Google Calendar provides a super nice UI to modify them, too.
+
+___
+
+google calendar export
+
+service read (polling)
+
+can handle traffic
+
+separating ICAL creation and parsing
+
+future plans
+
+https://mamchenkov.net/wordpress/2017/11/21/rrule-will-make-you-hate-calendars/
+
+ > Starting with the most basic rules of repeating every day, and going into complete insanity of repeating every other Thursday, starting from next week and until the beginning of next year every other month, RRULEs can drive even the calmest of people completely insane. 
 
 
 
