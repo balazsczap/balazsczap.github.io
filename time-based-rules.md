@@ -11,6 +11,8 @@ We had a problem this time, because this time, we **even more** definitely wante
 
 ___
 
+## Pain
+
 Driving under influence is a problem with electric scooters, so we wanted to introduce a way to raise some awareness. Our designers created multiple prototypes and we selected the best one, but after interviewing the our city ops and management teams, we found that they definitely didn't want any kind of potentially churn-creating UI element to be shown during the day. For probably the hundredth time, an engineer someone in the company (me) started having panic attacks because the time based configs problem was still not solved, but now we had to find a way to do it.
 
 Basically, we wanted to be able to answer the following question in any time, for any city, for any feature: "Is Feature enabled in City Right Now?" - and hopefully make setting up the answer to this as small a hassle as possible.
@@ -28,6 +30,10 @@ We sat down to the drawing board and came up with some rules our city operations
 - a single hour on a single saturday afternoon since there's a big match (what about all the other rules though???)
 
 And I've created this list in the evening while writing this article, so you can imagine how large the imaginable space of these rules could be. From any time to any time, with any custom repetition and exclusions and extensions and YIKES.
+
+___
+
+### It gets complicated
 
 For the first few examples, a specification where you define a time and a set of days could make sense (excuse the pseudo-YAML):
 
@@ -72,11 +78,13 @@ We also considered having ranges with some rule to repeat them, but then the rep
 
 We didn't even discuss the implementation, but you think about configuring this every time, and changing that configuration. This is where you start to really panic and invoke upon the might of the team's PM to ask cities to maybe please just be NORMAL, and introduce some constraints, but cities realllllly want to show a screen in the app for their football game.
 
-There's one tool which handles this kind of time complexity really well though: calendars. Just picture Google Calendar: you can create any kind of event length, with a lot of options to repeat them, do one-off exclusions on the repeated occurrences, do one-off events, have overlapping rules - it's all we ever wanted. Google Calendar provides a super nice UI to modify your events, with a recurrence editor too.
+___
+
+### It gets... simple?
+
+There's one tool which handles this kind of time complexity really well though: _calendars_. Just picture Google Calendar: you can create any kind of event length, with a lot of options to repeat them, do one-off exclusions on the repeated occurrences, do one-off events, have overlapping rules - it's all we ever wanted. Google Calendar provides a super nice UI to modify your events, with a recurrence editor too.
 
 ![Recurrence](./time-based-rules/recurrence.PNG)
-
-___
 
 Google Calendar uses a standard format for storing these event details, called iCalendar ([RFC5545](https://datatracker.ietf.org/doc/html/rfc5545)), which comes along with a spec for [recurrence rules (RRULE)](https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10). Google Calendar (and most other calendar tools) gives you a way to export your events in this format (and maybe even stores the events in iCal in the first place). What's even better, you can get a "Secret address in iCal format" under the calendar sharing settings, which is basically a secret, passwordless HTTP GET endpoint that you can download the iCal from.
 
@@ -87,6 +95,10 @@ Google Calendar uses a standard format for storing these event details, called i
 What I get from this post though that it was probably written with the frustration of being on the implementing side of a calendar client. If you're not looking to implement a calendar though, and have some lib to parse RRULES? You can connect your Google Calendar as a client, the "database" it edits is the list of all events,then create events that match a feature name, read the events, read their RRules, decide if the current time intersects a recurrence of an event, and you're golden.
 
 ![Modules](./time-based-rules/modules.png)
+
+___
+
+## How it works
 
 A feature then becomes an event. Any audience groups or cohorts, that you want to time the feature differently for (in our example, cities) go into the title or the description, or wherever (something like `event name: Driving Under Influence;Budpapest`).
 
@@ -102,9 +114,11 @@ Whenever the big question arrives - asking whether *Driving Under Influence* sho
 
 ![Feature decision](./time-based-rules/nowish.PNG)
 
-The whole logic is not too complicated if you don't think about it too hard - and you don't have to, since Google Calendar, and iCal, and these wonderful libs abstract away all the gory details of how RRULEs need to be set up, and how you can generate all the occurrences.
+The whole logic is not too complicated if you don't think about it too hard - **and you don't have to**, since Google Calendar, and iCal, and these wonderful libs abstract away all the gory details of how RRULEs need to be set up, and how you can generate all the occurrences.
 
 ___
+
+## Feels good
 
 From a maintainability perspective, this is pretty good, since there's only one dependency, which is the "database" of your events in Google Calendar, which is hosted by Google - and even if they go down, we have a cache that can serve all current recurrences too even weeks later.
 
@@ -115,10 +129,7 @@ If for some reason we want to change any components, it's simple to do so:
 
 From a usability perspective, it's even better: we can just hand out the calendar to the city operations managers themselves so they can directly set up the events they want, and they can also see through what's enabled at the moment, since your calendar gives you an accurate picture of what event(s) you have happening at any moment. No hassle, 
 
-
 ![Calendar event](./time-based-rules/calcal.PNG)
-
-Hope you found this useful, 
 
 
 
