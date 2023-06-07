@@ -55,7 +55,7 @@ rules:
     days: sat, sun, mon
 ```
 
-This almost covers everything, so a single weeks repetition is enough. We still need to introduce exclusions and one-off extensions:
+This almost covers everything within a single week. We still need to introduce exclusions and one-off extensions - with those, you can cover biweekly repetitions too:
 
 ```
 rules:
@@ -74,9 +74,7 @@ rules:
     date: 2023-05-11
 ```
 
-We also considered having ranges with some rule to repeat them, but then the repetition rules are what become super messy (repeat for 3 days, then skip 2) etc.
-
-We didn't even discuss the implementation, but you think about configuring this every time, and changing that configuration. This is where you start to really panic and invoke upon the might of the team's PM to ask cities to maybe please just be NORMAL, and introduce some constraints, but cities realllllly want to show a screen in the app for their football game.
+It gets messy, and it's hard to understand what's happening at a glance. We didn't even discuss the implementation, but you think about configuring this every time, and changing that configuration. This is where you start to really panic and invoke upon the might of the team's PM to ask cities to maybe please just be NORMAL, and let us introduce some constraints, but cities realllllly want to show a screen in the app for their one-off football game.
 
 ___
 
