@@ -118,12 +118,12 @@ ___
 
 ## Feels good
 
-From a maintainability perspective, this is pretty good, since there's only one dependency, which is the "database" of your events in Google Calendar, which is hosted by Google - and even if they go down, we have a cache that can serve all current recurrences too even weeks later.
+From a maintainability perspective, this is pretty good, since there's only one dependency, which is the "database" of your events in Google Calendar, which is hosted by Google - and even if they go down, we have an in-memory cache that can serve all saved recurrences even two weeks later (if your service doesn't restart).
 
 If for some reason we want to change any components, it's simple to do so: 
 
-- Google Calendar can be swapped to any other calendar software and we still keep the ical format and the rest of the backend,
-- The backend implementation itself is almost trivial, and can be moved between services, extracted on it's own, put into an SDK, rewritten to other languages, any of this within a day's effort.
+- Google Calendar can be swapped to any other calendar software and we still keep the ical format as the database, and the rest of the backend,
+- The backend implementation itself is close to trivial, and can be moved between services, extracted on it's own, put into an SDK, rewritten to other languages, anz of these within a day's effort.
 
 From a usability perspective, it's even better: we can just **hand out the calendar** to the city operations managers themselves so they can directly set up the events they want, and they can also see through what's enabled at the moment, since your calendar gives you an accurate picture of what event(s) you have happening at any moment. No hassle in setting it up, no hassle in understanding it. **You actually give the tool to people to configure their stuff ON AN INTERFACE THAT'S ALREADY FAMILIAR TO THEM**. If there's one major win in this whole idea, it's this.
 
