@@ -128,9 +128,3 @@ If for some reason we want to change any components, it's simple to do so:
 From a usability perspective, it's even better: we can just **hand out the calendar** to the city operations managers themselves so they can directly set up the events they want, and they can also see through what's enabled at the moment, since your calendar gives you an accurate picture of what event(s) you have happening at any moment. No hassle in setting it up, no hassle in understanding it. **You actually give the tool to people to configure their stuff ON AN INTERFACE THAT'S ALREADY FAMILIAR TO THEM**. If there's one major win in this whole idea, it's this.
 
 ![Calendar event](./time-based-rules/calcal.PNG)
-
-
-
-
-
-
