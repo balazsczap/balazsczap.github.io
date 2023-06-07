@@ -6,7 +6,7 @@ permalink: /time-based-rules
 
 # Using Google Calendar for time-based rules
 
-Back at TIER, we've been doing workarounds for having time based rules in the system for years. Prohibited zones that are only active during the weekends, prompts in the app are only available in the evening, *some other example* were all the company wished very hard for, but engineers kept pushing it back, since it's pretty complex, as I'm going to show in a minute.
+Back at TIER, we've been doing various workarounds instead of properly having time based rules in the system for years. Prohibited zones that are only active during the weekends, prompts in the app are only available in the evening, *some other example* were all the company wished very hard for, but engineers kept pushing it back, since it's pretty complex, as I'm going to show in a minute.
 We had a problem this time, because this time, we **even** **more** definitely wanted to have a prompt in the app, for a driving-under-influence prevention feature, and showing that only made sense in the evenings. This is how we solved it.
 
 ___
